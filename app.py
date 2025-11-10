@@ -28,6 +28,58 @@ game_data = load_game_data()
 SETTINGS_DIR = Path("saved_settings")
 SETTINGS_DIR.mkdir(exist_ok=True)
 
+# Cache directory
+CACHE_DIR = Path(".cache")
+CACHE_DIR.mkdir(exist_ok=True)
+
+def generate_cache_key(character_name, quartz_set, desired_arts, max_builds, prioritized_quartz):
+    """Generate a unique cache key for a search configuration."""
+    import hashlib
+    
+    # Create a deterministic string representation
+    config_str = json.dumps({
+        "character": character_name,
+        "quartz": sorted(list(quartz_set)),
+        "arts": sorted(desired_arts),
+        "max_builds": max_builds,
+        "prioritized_quartz": sorted(list(prioritized_quartz))
+    }, sort_keys=True)
+    
+    # Generate hash
+    return hashlib.md5(config_str.encode()).hexdigest()
+
+def save_cached_results(cache_key, builds):
+    """Save build results to cache."""
+    cache_file = CACHE_DIR / f"{cache_key}.json"
+    
+    # Convert sets to lists for JSON serialization
+    serializable_builds = []
+    for build in builds:
+        serializable_build = build.copy()
+        if 'unlocked_arts' in serializable_build:
+            serializable_build['unlocked_arts'] = sorted(list(serializable_build['unlocked_arts']))
+        serializable_builds.append(serializable_build)
+    
+    with open(cache_file, 'w') as f:
+        json.dump(serializable_builds, f, indent=2)
+
+def load_cached_results(cache_key):
+    """Load build results from cache if available."""
+    cache_file = CACHE_DIR / f"{cache_key}.json"
+    
+    if not cache_file.exists():
+        return None
+    
+    with open(cache_file, 'r') as f:
+        builds = json.load(f)
+    
+    # Convert lists back to sets
+    for build in builds:
+        if 'unlocked_arts' in build:
+            build['unlocked_arts'] = set(build['unlocked_arts'])
+    
+    return builds
+
 # Last session file
 LAST_SESSION_FILE = SETTINGS_DIR / ".last_session.json"
 
@@ -359,37 +411,57 @@ with tab1:
         elif not st.session_state.selected_quartz:
             st.error("Please select at least one quartz!")
         else:
-            # Create placeholders for progress updates
-            progress_placeholder = st.empty()
-            spinner_placeholder = st.empty()
+            # Generate cache key
+            character = game_data.get_character(st.session_state.selected_character)
+            quartz_set = set(st.session_state.selected_quartz)
+            prioritized_set = set(st.session_state.prioritized_quartz)
             
-            with spinner_placeholder:
-                with st.spinner("Searching for builds..."):
-                    character = game_data.get_character(st.session_state.selected_character)
-                    quartz_set = set(st.session_state.selected_quartz)
-                    
-                    finder = BuildFinder(
-                        character,
-                        quartz_set,
-                        st.session_state.selected_arts,
-                        game_data,
-                        max_builds=st.session_state.max_builds,
-                        prioritized_quartz=set(st.session_state.prioritized_quartz)
-                    )
-                    
-                    # Create a callback to update progress
-                    def progress_callback():
-                        progress_placeholder.info(
-                            f"🔍 {finder.combinations_checked:,} combinations checked, "
-                            f"{len(finder.valid_builds)} valid builds so far..."
+            cache_key = generate_cache_key(
+                st.session_state.selected_character,
+                quartz_set,
+                st.session_state.selected_arts,
+                st.session_state.max_builds,
+                prioritized_set
+            )
+            
+            # Try to load from cache
+            builds = load_cached_results(cache_key)
+            
+            if builds is not None:
+                st.info(f"✅ Loaded {len(builds)} builds from cache!")
+            else:
+                # Create placeholders for progress updates
+                progress_placeholder = st.empty()
+                spinner_placeholder = st.empty()
+                
+                with spinner_placeholder:
+                    with st.spinner("Searching for builds..."):
+                        finder = BuildFinder(
+                            character,
+                            quartz_set,
+                            st.session_state.selected_arts,
+                            game_data,
+                            max_builds=st.session_state.max_builds,
+                            prioritized_quartz=prioritized_set
                         )
-                    
-                    finder.progress_callback = progress_callback
-                    builds = finder.find_builds(verbose=False)
-            
-            # Clear progress messages
-            progress_placeholder.empty()
-            spinner_placeholder.empty()
+                        
+                        # Create a callback to update progress
+                        def progress_callback():
+                            progress_placeholder.info(
+                                f"🔍 {finder.combinations_checked:,} combinations checked, "
+                                f"{len(finder.valid_builds)} valid builds so far..."
+                            )
+                        
+                        finder.progress_callback = progress_callback
+                        builds = finder.find_builds(verbose=False)
+                
+                # Clear progress messages
+                progress_placeholder.empty()
+                spinner_placeholder.empty()
+                
+                # Save to cache
+                if builds:
+                    save_cached_results(cache_key, builds)
             
             if builds:
                 st.success(f"✅ Found {len(builds)} valid builds!")

@@ -39,5 +39,8 @@ Thumbs.db
 # Streamlit
 .streamlit/
 
+# Cache
+.cache/
+
 # Debug saves (can be shared for troubleshooting)
 debug_saves/
