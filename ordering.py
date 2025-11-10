@@ -23,10 +23,15 @@ class LexicographicOrdering:
     node is not shared/branching, preserving independence between branches.
     """
 
-    def __init__(self):
-        """Initialize the ordering tracker."""
+    def __init__(self, prioritized_quartz: Set[str] = None):
+        """Initialize the ordering tracker.
+
+        Args:
+            prioritized_quartz: Set of quartz names that should be tried first
+        """
         # Maps line_index -> last_used_quartz_index
         self.last_quartz_index_per_line: Dict[int, int] = {}
+        self.prioritized_quartz = prioritized_quartz if prioritized_quartz is not None else set()
 
     def should_apply_ordering(self, current_node) -> bool:
         """
@@ -49,13 +54,19 @@ class LexicographicOrdering:
         """
         Sort available quartz for consistent ordering.
 
+        Prioritized quartz come first, then the rest alphabetically.
+
         Args:
             available_quartz: Set of quartz names available for placement
 
         Returns:
             Sorted list of quartz names
         """
-        return sorted(available_quartz)
+        prioritized = sorted(
+            [q for q in available_quartz if q in self.prioritized_quartz])
+        regular = sorted(
+            [q for q in available_quartz if q not in self.prioritized_quartz])
+        return prioritized + regular
 
     def get_minimum_index(self, current_node) -> int:
         """
@@ -106,6 +117,6 @@ class LexicographicOrdering:
         Returns:
             New LexicographicOrdering instance with copied state
         """
-        new_ordering = LexicographicOrdering()
+        new_ordering = LexicographicOrdering(self.prioritized_quartz)
         new_ordering.last_quartz_index_per_line = self.last_quartz_index_per_line.copy()
         return new_ordering

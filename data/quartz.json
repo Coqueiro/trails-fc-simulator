@@ -7,6 +7,7 @@
       "elements": {
         "Earth": 1
       },
+      "quartz_element": "Earth",
       "effects": "DEF+5%",
       "description": "+1 Earth, DEF+5%"
     },
@@ -17,6 +18,7 @@
       "elements": {
         "Earth": 2
       },
+      "quartz_element": "Earth",
       "effects": "DEF+10%",
       "description": "+2 Earth, DEF+10%"
     },
@@ -27,6 +29,7 @@
       "elements": {
         "Earth": 3
       },
+      "quartz_element": "Earth",
       "effects": "DEF+15%",
       "description": "+3 Earth, DEF+15%"
     },
@@ -37,6 +40,7 @@
       "elements": {
         "Earth": 3
       },
+      "quartz_element": "Earth",
       "effects": "DEF+20%",
       "description": "+3 Earth, DEF+20%"
     },
@@ -47,6 +51,7 @@
       "elements": {
         "Earth": 1
       },
+      "quartz_element": "Earth",
       "effects": "Stun Gauge dmg +15%, STR+10",
       "description": "+1 Earth, Stun Gauge dmg +15%, STR+10"
     },
@@ -57,6 +62,7 @@
       "elements": {
         "Earth": 2
       },
+      "quartz_element": "Earth",
       "effects": "Stun Gauge dmg +20%, STR+20",
       "description": "+2 Earth, Stun Gauge dmg +20%, STR+20"
     },
@@ -67,6 +73,7 @@
       "elements": {
         "Earth": 3
       },
+      "quartz_element": "Earth",
       "effects": "Stun Gauge dmg +25%, STR+30",
       "description": "+3 Earth, Stun Gauge dmg +25%, STR+30"
     },
@@ -77,6 +84,7 @@
       "elements": {
         "Earth": 3
       },
+      "quartz_element": "Earth",
       "effects": "Stun Gauge dmg +30%, STR+50",
       "description": "+3 Earth, Stun Gauge dmg +30%, STR+50"
     },
@@ -87,6 +95,7 @@
       "elements": {
         "Earth": 1
       },
+      "quartz_element": "Earth",
       "effects": "Poison (15%)",
       "description": "+1 Earth, Poison (15%)"
     },
@@ -97,6 +106,7 @@
       "elements": {
         "Earth": 2
       },
+      "quartz_element": "Earth",
       "effects": "Petrify (15%)",
       "description": "+2 Earth, Petrify (15%)"
     },
@@ -108,6 +118,7 @@
         "Earth": 2,
         "Mirage": 2
       },
+      "quartz_element": "Earth",
       "effects": "DEF/ADF Up when HP is critical",
       "description": "+2 Earth, +2 Mirage, DEF/ADF Up when HP is critical"
     },
@@ -119,6 +130,7 @@
         "Earth": 3,
         "Wind": 3
       },
+      "quartz_element": "Earth",
       "effects": "Gain +30% sepith in battles",
       "description": "+3 Earth, +3 Wind, Gain +30% sepith in battles"
     },
@@ -129,6 +141,7 @@
       "elements": {
         "Water": 1
       },
+      "quartz_element": "Water",
       "effects": "ATS+5%",
       "description": "+1 Water, ATS+5%"
     },
@@ -139,6 +152,7 @@
       "elements": {
         "Water": 2
       },
+      "quartz_element": "Water",
       "effects": "ATS+10%",
       "description": "+2 Water, ATS+10%"
     },
@@ -149,6 +163,7 @@
       "elements": {
         "Water": 3
       },
+      "quartz_element": "Water",
       "effects": "ATS+15%",
       "description": "+3 Water, ATS+15%"
     },
@@ -159,6 +174,7 @@
       "elements": {
         "Water": 3
       },
+      "quartz_element": "Water",
       "effects": "ATS+20%",
       "description": "+3 Water, ATS+20%"
     },
@@ -169,6 +185,7 @@
       "elements": {
         "Water": 1
       },
+      "quartz_element": "Water",
       "effects": "HP+10%",
       "description": "+1 Water, HP+10%"
     },
@@ -179,6 +196,7 @@
       "elements": {
         "Water": 2
       },
+      "quartz_element": "Water",
       "effects": "HP+20%",
       "description": "+2 Water, HP+20%"
     },
@@ -189,6 +207,7 @@
       "elements": {
         "Water": 3
       },
+      "quartz_element": "Water",
       "effects": "HP+30%",
       "description": "+3 Water, HP+30%"
     },
@@ -199,6 +218,7 @@
       "elements": {
         "Water": 3
       },
+      "quartz_element": "Water",
       "effects": "HP+40%",
       "description": "+3 Water, HP+40%"
     },
@@ -209,6 +229,7 @@
       "elements": {
         "Water": 2
       },
+      "quartz_element": "Water",
       "effects": "Freeze (10%)",
       "description": "+2 Water, Freeze (10%)"
     },
@@ -220,6 +241,7 @@
         "Water": 2,
         "Fire": 2
       },
+      "quartz_element": "Water",
       "effects": "10% HP recovery when critical",
       "description": "+2 Water, +2 Fire, 10% HP recovery when critical"
     },
@@ -231,6 +253,7 @@
         "Water": 2,
         "Wind": 2
       },
+      "quartz_element": "Water",
       "effects": "Gradual HP recovery on field",
       "description": "+2 Water, +2 Wind, Gradual HP recovery on field"
     },
@@ -242,6 +265,7 @@
         "Water": 3,
         "Earth": 3
       },
+      "quartz_element": "Water",
       "effects": "Healing Arts Effect +30%",
       "description": "+3 Water, +3 Earth, Healing Arts Effect +30%"
     },
@@ -252,6 +276,7 @@
       "elements": {
         "Fire": 1
       },
+      "quartz_element": "Fire",
       "effects": "STR+5%, DEF-5%",
       "description": "+1 Fire, STR+5%, DEF-5%"
     },
@@ -262,6 +287,7 @@
       "elements": {
         "Fire": 2
       },
+      "quartz_element": "Fire",
       "effects": "STR+10%, DEF-10%",
       "description": "+2 Fire, STR+10%, DEF-10%"
     },
@@ -272,6 +298,7 @@
       "elements": {
         "Fire": 3
       },
+      "quartz_element": "Fire",
       "effects": "STR+15%, DEF-15%",
       "description": "+3 Fire, STR+15%, DEF-15%"
     },
@@ -282,6 +309,7 @@
       "elements": {
         "Fire": 3
       },
+      "quartz_element": "Fire",
       "effects": "STR+20%, DEF-15%",
       "description": "+3 Fire, STR+20%, DEF-15%"
     },
@@ -292,6 +320,7 @@
       "elements": {
         "Fire": 1
       },
+      "quartz_element": "Fire",
       "effects": "CRT+3%",
       "description": "+1 Fire, CRT+3%"
     },
@@ -302,6 +331,7 @@
       "elements": {
         "Fire": 2
       },
+      "quartz_element": "Fire",
       "effects": "CRT+6%",
       "description": "+2 Fire, CRT+6%"
     },
@@ -312,6 +342,7 @@
       "elements": {
         "Fire": 3
       },
+      "quartz_element": "Fire",
       "effects": "CRT+9%",
       "description": "+3 Fire, CRT+9%"
     },
@@ -322,6 +353,7 @@
       "elements": {
         "Fire": 3
       },
+      "quartz_element": "Fire",
       "effects": "CRT+10%, SPD+7",
       "description": "+3 Fire, CRT+10%, SPD+7"
     },
@@ -332,6 +364,7 @@
       "elements": {
         "Fire": 1
       },
+      "quartz_element": "Fire",
       "effects": "Burn (15%)",
       "description": "+1 Fire, Burn (15%)"
     },
@@ -342,6 +375,7 @@
       "elements": {
         "Fire": 2
       },
+      "quartz_element": "Fire",
       "effects": "Seal (15%)",
       "description": "+2 Fire, Seal (15%)"
     },
@@ -353,6 +387,7 @@
         "Fire": 2,
         "Earth": 2
       },
+      "quartz_element": "Fire",
       "effects": "STR Up when HP is critical",
       "description": "+2 Fire, +2 Earth, STR Up when HP is critical"
     },
@@ -364,6 +399,7 @@
         "Fire": 3,
         "Wind": 3
       },
+      "quartz_element": "Fire",
       "effects": "Gradual EP recovery on field",
       "description": "+3 Fire, +3 Wind, Gradual EP recovery on field"
     },
@@ -374,6 +410,7 @@
       "elements": {
         "Wind": 1
       },
+      "quartz_element": "Wind",
       "effects": "ADF+5%, AEV+3%",
       "description": "+1 Wind, ADF+5%, AEV+3%"
     },
@@ -384,6 +421,7 @@
       "elements": {
         "Wind": 2
       },
+      "quartz_element": "Wind",
       "effects": "ADF+10%, AEV+6%",
       "description": "+2 Wind, ADF+10%, AEV+6%"
     },
@@ -394,6 +432,7 @@
       "elements": {
         "Wind": 3
       },
+      "quartz_element": "Wind",
       "effects": "ADF+15%, AEV+9%",
       "description": "+3 Wind, ADF+15%, AEV+9%"
     },
@@ -404,6 +443,7 @@
       "elements": {
         "Wind": 3
       },
+      "quartz_element": "Wind",
       "effects": "ADF+20%, AEV+10%, SPD+7",
       "description": "+3 Wind, ADF+20%, AEV+10%, SPD+7"
     },
@@ -414,6 +454,7 @@
       "elements": {
         "Wind": 1
       },
+      "quartz_element": "Wind",
       "effects": "EVA+3%",
       "description": "+1 Wind, EVA+3%"
     },
@@ -424,6 +465,7 @@
       "elements": {
         "Wind": 2
       },
+      "quartz_element": "Wind",
       "effects": "EVA+6%",
       "description": "+2 Wind, EVA+6%"
     },
@@ -434,6 +476,7 @@
       "elements": {
         "Wind": 3
       },
+      "quartz_element": "Wind",
       "effects": "EVA+9%",
       "description": "+3 Wind, EVA+9%"
     },
@@ -444,6 +487,7 @@
       "elements": {
         "Wind": 3
       },
+      "quartz_element": "Wind",
       "effects": "EVA+10%, SPD+7",
       "description": "+3 Wind, EVA+10%, SPD+7"
     },
@@ -454,6 +498,7 @@
       "elements": {
         "Wind": 2
       },
+      "quartz_element": "Wind",
       "effects": "Sleep (15%)",
       "description": "+2 Wind, Sleep (15%)"
     },
@@ -465,6 +510,7 @@
         "Wind": 2,
         "Space": 2
       },
+      "quartz_element": "Wind",
       "effects": "Foresight when HP is critical",
       "description": "+2 Wind, +2 Space, Foresight when HP is critical"
     },
@@ -478,6 +524,7 @@
         "Fire": 3,
         "Wind": 3
       },
+      "quartz_element": "Wind",
       "effects": "Aggro \u2191 (200% field, 70% battle)",
       "description": "+3 Earth, +3 Water, +3 Fire, +3 Wind, Aggro \u2191 (200% field, 70% battle)"
     },
@@ -489,6 +536,7 @@
         "Wind": 3,
         "Time": 3
       },
+      "quartz_element": "Wind",
       "effects": "Magic dmg \u2191 with HP lost (up to x2)",
       "description": "+3 Wind, +3 Time, Magic dmg \u2191 with HP lost (up to x2)"
     },
@@ -499,6 +547,7 @@
       "elements": {
         "Time": 1
       },
+      "quartz_element": "Time",
       "effects": "SPD+10%",
       "description": "+1 Time, SPD+10%"
     },
@@ -509,6 +558,7 @@
       "elements": {
         "Time": 2
       },
+      "quartz_element": "Time",
       "effects": "SPD+20%",
       "description": "+2 Time, SPD+20%"
     },
@@ -519,6 +569,7 @@
       "elements": {
         "Time": 3
       },
+      "quartz_element": "Time",
       "effects": "SPD+30%",
       "description": "+3 Time, SPD+30%"
     },
@@ -529,6 +580,7 @@
       "elements": {
         "Time": 3
       },
+      "quartz_element": "Time",
       "effects": "SPD+40%",
       "description": "+3 Time, SPD+40%"
     },
@@ -540,6 +592,7 @@
         "Time": 1,
         "Mirage": 1
       },
+      "quartz_element": "Time",
       "effects": "Cast x0.7, ATS+10",
       "description": "+1 Time, +1 Mirage, Cast x0.7, ATS+10"
     },
@@ -552,6 +605,7 @@
         "Mirage": 2,
         "Space": 1
       },
+      "quartz_element": "Time",
       "effects": "Cast x0.5, ATS+20",
       "description": "+2 Time, +2 Mirage, +1 Space, Cast x0.5, ATS+20"
     },
@@ -564,6 +618,7 @@
         "Mirage": 3,
         "Space": 2
       },
+      "quartz_element": "Time",
       "effects": "Cast x0.3, ATS+30",
       "description": "+3 Time, +3 Mirage, +2 Space, Cast x0.3, ATS+30"
     },
@@ -576,6 +631,7 @@
         "Mirage": 3,
         "Space": 2
       },
+      "quartz_element": "Time",
       "effects": "Cast x0.2, ATS+50",
       "description": "+3 Time, +3 Mirage, +2 Space, Cast x0.2, ATS+50"
     },
@@ -586,6 +642,7 @@
       "elements": {
         "Time": 1
       },
+      "quartz_element": "Time",
       "effects": "Blind (15%)",
       "description": "+1 Time, Blind (15%)"
     },
@@ -596,6 +653,7 @@
       "elements": {
         "Time": 3
       },
+      "quartz_element": "Time",
       "effects": "Deathblow (10%)",
       "description": "+3 Time, Deathblow (10%)"
     },
@@ -607,6 +665,7 @@
         "Time": 3,
         "Water": 3
       },
+      "quartz_element": "Time",
       "effects": "SPD/MOV Up when HP critical",
       "description": "+3 Time, +3 Water, SPD/MOV Up when HP critical"
     },
@@ -618,6 +677,7 @@
         "Time": 5,
         "Earth": 5
       },
+      "quartz_element": "Time",
       "effects": "Drop rate +50% in battles",
       "description": "+5 Time, +5 Earth, Drop rate +50% in battles"
     },
@@ -628,6 +688,7 @@
       "elements": {
         "Space": 1
       },
+      "quartz_element": "Space",
       "effects": "ACC+60%, STR+10",
       "description": "+1 Space, ACC+60%, STR+10"
     },
@@ -638,6 +699,7 @@
       "elements": {
         "Space": 2
       },
+      "quartz_element": "Space",
       "effects": "ACC+80%, STR+20",
       "description": "+2 Space, ACC+80%, STR+20"
     },
@@ -648,6 +710,7 @@
       "elements": {
         "Space": 3
       },
+      "quartz_element": "Space",
       "effects": "ACC+100%, STR+30",
       "description": "+3 Space, ACC+100%, STR+30"
     },
@@ -658,6 +721,7 @@
       "elements": {
         "Space": 3
       },
+      "quartz_element": "Space",
       "effects": "ACC+150%, STR+50",
       "description": "+3 Space, ACC+150%, STR+50"
     },
@@ -669,6 +733,7 @@
         "Space": 1,
         "Time": 1
       },
+      "quartz_element": "Space",
       "effects": "EP Cost -30%",
       "description": "+1 Space, +1 Time, EP Cost -30%"
     },
@@ -681,6 +746,7 @@
         "Time": 2,
         "Mirage": 1
       },
+      "quartz_element": "Space",
       "effects": "EP Cost -40%",
       "description": "+2 Space, +2 Time, +1 Mirage, EP Cost -40%"
     },
@@ -693,6 +759,7 @@
         "Time": 3,
         "Mirage": 2
       },
+      "quartz_element": "Space",
       "effects": "EP Cost -50%",
       "description": "+3 Space, +3 Time, +2 Mirage, EP Cost -50%"
     },
@@ -705,6 +772,7 @@
         "Time": 3,
         "Mirage": 2
       },
+      "quartz_element": "Space",
       "effects": "EP Cost -60%",
       "description": "+3 Space, +3 Time, +2 Mirage, EP Cost -60%"
     },
@@ -715,6 +783,7 @@
       "elements": {
         "Space": 3
       },
+      "quartz_element": "Space",
       "effects": "Mute (30%), STR+25",
       "description": "+3 Space, Mute (30%), STR+25"
     },
@@ -726,6 +795,7 @@
         "Space": 3,
         "Earth": 3
       },
+      "quartz_element": "Space",
       "effects": "Gradual CP recovery, DEF/ADF+50",
       "description": "+3 Space, +3 Earth, Gradual CP recovery, DEF+50, ADF+50"
     },
@@ -737,6 +807,7 @@
         "Space": 5,
         "Water": 5
       },
+      "quartz_element": "Space",
       "effects": "Arts Range +5m",
       "description": "+5 Space, +5 Water, Arts Range +5m"
     },
@@ -748,6 +819,7 @@
         "Space": 5,
         "Fire": 5
       },
+      "quartz_element": "Space",
       "effects": "Physical dmg \u2191 with HP lost (x2)",
       "description": "+5 Space, +5 Fire, Physical dmg \u2191 with HP lost (x2)"
     },
@@ -758,6 +830,7 @@
       "elements": {
         "Mirage": 1
       },
+      "quartz_element": "Mirage",
       "effects": "Delay (30% chance)",
       "description": "+1 Mirage, Delay (30% chance)"
     },
@@ -768,6 +841,7 @@
       "elements": {
         "Mirage": 2
       },
+      "quartz_element": "Mirage",
       "effects": "Delay (60% chance)",
       "description": "+2 Mirage, Delay (60% chance)"
     },
@@ -778,6 +852,7 @@
       "elements": {
         "Mirage": 3
       },
+      "quartz_element": "Mirage",
       "effects": "Delay (90% chance)",
       "description": "+3 Mirage, Delay (90% chance)"
     },
@@ -788,6 +863,7 @@
       "elements": {
         "Mirage": 3
       },
+      "quartz_element": "Mirage",
       "effects": "Delay (100%), STR+50",
       "description": "+3 Mirage, Delay (100%), STR+50"
     },
@@ -799,6 +875,7 @@
         "Mirage": 1,
         "Space": 1
       },
+      "quartz_element": "Mirage",
       "effects": "EP+20%",
       "description": "+1 Mirage, +1 Space, EP+20%"
     },
@@ -811,6 +888,7 @@
         "Space": 2,
         "Time": 1
       },
+      "quartz_element": "Mirage",
       "effects": "EP+35%",
       "description": "+2 Mirage, +2 Space, +1 Time, EP+35%"
     },
@@ -823,6 +901,7 @@
         "Space": 3,
         "Time": 2
       },
+      "quartz_element": "Mirage",
       "effects": "EP+50%",
       "description": "+3 Mirage, +3 Space, +2 Time, EP+50%"
     },
@@ -835,6 +914,7 @@
         "Space": 3,
         "Time": 2
       },
+      "quartz_element": "Mirage",
       "effects": "EP+65%",
       "description": "+3 Mirage, +3 Space, +2 Time, EP+65%"
     },
@@ -845,6 +925,7 @@
       "elements": {
         "Mirage": 3
       },
+      "quartz_element": "Mirage",
       "effects": "Confusion (15%), STR+25",
       "description": "+3 Mirage, Confusion (15%), STR+25"
     },
@@ -856,6 +937,7 @@
         "Mirage": 3,
         "Fire": 3
       },
+      "quartz_element": "Mirage",
       "effects": "ATS Up when HP is critical",
       "description": "+3 Mirage, +3 Fire, ATS Up when HP is critical"
     },
@@ -868,6 +950,7 @@
         "Time": 3,
         "Space": 3
       },
+      "quartz_element": "Mirage",
       "effects": "Aggro \u2193 (field + battle 70%)",
       "description": "+3 Mirage, +3 Time, +3 Space, Aggro \u2193 (field + battle 70%)"
     },
@@ -879,6 +962,7 @@
         "Mirage": 5,
         "Wind": 5
       },
+      "quartz_element": "Mirage",
       "effects": "ACC+100%, EVA+25%, AEV+25%, CRT+10%",
       "description": "+5 Mirage, +5 Wind, ACC+100%, EVA+25%, AEV+25%, CRT+10%"
     }

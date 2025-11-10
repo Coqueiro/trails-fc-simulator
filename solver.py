@@ -19,12 +19,14 @@ class BuildFinder:
     """
 
     def __init__(self, character: Character, quartz_pool: Set[str],
-                 desired_arts: List[str], game_data: GameData, max_builds: int = 50):
+                 desired_arts: List[str], game_data: GameData, max_builds: int = 50,
+                 prioritized_quartz: Set[str] = None):
         self.character = character
         self.quartz_pool = quartz_pool
         self.desired_arts = desired_arts
         self.game_data = game_data
         self.max_builds = max_builds
+        self.prioritized_quartz = prioritized_quartz if prioritized_quartz is not None else set()
 
         # Calculate required elements
         desired_art_objs = [game_data.arts_map[name]
@@ -32,12 +34,8 @@ class BuildFinder:
         self.required_elements = game_data.element_calc.get_required_elements(
             desired_art_objs)
 
-        # Filter to only relevant quartz
-        self.relevant_quartz = {
-            q_name for q_name in quartz_pool
-            if any(elem in game_data.quartz_map[q_name].elements
-                   for elem in self.required_elements.keys())
-        }
+        # Use all quartz from the pool (user has already pre-filtered)
+        self.relevant_quartz = quartz_pool
 
         # Results storage
         self.valid_builds = []
@@ -230,7 +228,7 @@ class BuildFinder:
         # Start recursive population from the first node
         # Initialize with fresh ordering tracker
         self._populate_tree_recursive(
-            tree, 0, self.relevant_quartz, {}, LexicographicOrdering())
+            tree, 0, self.relevant_quartz, {}, LexicographicOrdering(self.prioritized_quartz))
 
         if verbose:
             print(f"\n{'='*50}")

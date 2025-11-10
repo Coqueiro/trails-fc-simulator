@@ -99,12 +99,14 @@ if 'initialized' not in st.session_state:
         if loaded:
             st.session_state.selected_character = loaded.get('character', 'Estelle')
             st.session_state.selected_quartz = loaded.get('selected_quartz', [])
+            st.session_state.prioritized_quartz = loaded.get('prioritized_quartz', [])
             st.session_state.selected_arts = loaded.get('selected_arts', [])
             st.session_state.max_builds = loaded.get('max_builds', 50)
         else:
             # File doesn't exist, use defaults
             st.session_state.selected_character = "Estelle"
             st.session_state.selected_quartz = []
+            st.session_state.prioritized_quartz = []
             st.session_state.selected_arts = []
             st.session_state.max_builds = 50
     else:
@@ -113,6 +115,7 @@ if 'initialized' not in st.session_state:
         st.session_state.auto_save = True
         st.session_state.selected_character = "Estelle"
         st.session_state.selected_quartz = []
+        st.session_state.prioritized_quartz = []
         st.session_state.selected_arts = []
         st.session_state.max_builds = 50
     
@@ -125,6 +128,7 @@ def auto_save_if_enabled():
         settings = {
             'character': st.session_state.selected_character,
             'selected_quartz': st.session_state.selected_quartz,
+            'prioritized_quartz': st.session_state.prioritized_quartz,
             'selected_arts': st.session_state.selected_arts,
             'max_builds': st.session_state.max_builds
         }
@@ -172,6 +176,7 @@ with st.sidebar:
                 st.session_state.settings_name = selected_file
                 st.session_state.selected_character = loaded.get('character', 'Estelle')
                 st.session_state.selected_quartz = loaded.get('selected_quartz', [])
+                st.session_state.prioritized_quartz = loaded.get('prioritized_quartz', [])
                 st.session_state.selected_arts = loaded.get('selected_arts', [])
                 st.session_state.max_builds = loaded.get('max_builds', 50)
                 
@@ -191,6 +196,7 @@ with st.sidebar:
             settings = {
                 'character': st.session_state.selected_character,
                 'selected_quartz': st.session_state.selected_quartz,
+                'prioritized_quartz': st.session_state.prioritized_quartz,
                 'selected_arts': st.session_state.selected_arts,
                 'max_builds': st.session_state.max_builds
             }
@@ -215,6 +221,7 @@ with st.sidebar:
     st.write(f"**File:** {st.session_state.settings_name}")
     st.write(f"**Character:** {st.session_state.selected_character}")
     st.write(f"**Quartz:** {len(st.session_state.selected_quartz)}")
+    st.write(f"**Prioritized:** {len(st.session_state.prioritized_quartz)}")
     st.write(f"**Arts:** {len(st.session_state.selected_arts)}")
 
 
@@ -267,6 +274,11 @@ with tab1:
             # Update session state and rerun if changed
             if selected_quartz != st.session_state.selected_quartz:
                 st.session_state.selected_quartz = selected_quartz
+                # Remove any prioritized quartz that are no longer selected
+                st.session_state.prioritized_quartz = [
+                    q for q in st.session_state.prioritized_quartz 
+                    if q in selected_quartz
+                ]
                 auto_save_if_enabled()
                 st.rerun()
         
@@ -278,10 +290,40 @@ with tab1:
                 st.rerun()
             if st.button("Clear", key="clear_quartz", use_container_width=True):
                 st.session_state.selected_quartz = []
+                st.session_state.prioritized_quartz = []
                 auto_save_if_enabled()
                 st.rerun()
         
         st.caption(f"Selected: {len(st.session_state.selected_quartz)} quartz")
+        
+        # Prioritized Quartz selection
+        if st.session_state.selected_quartz:
+            st.markdown("**Prioritized Quartz** (optional)")
+            st.caption("These quartz will be tried first during build search")
+            
+            col1, col2 = st.columns([4, 1])
+            with col1:
+                prioritized_quartz = st.multiselect(
+                    "Select prioritized quartz",
+                    options=sorted(st.session_state.selected_quartz),
+                    default=st.session_state.prioritized_quartz,
+                    label_visibility="collapsed",
+                    key="prioritized_quartz_selector"
+                )
+                # Update session state and rerun if changed
+                if prioritized_quartz != st.session_state.prioritized_quartz:
+                    st.session_state.prioritized_quartz = prioritized_quartz
+                    auto_save_if_enabled()
+                    st.rerun()
+            
+            with col2:
+                st.write("")  # Spacing
+                if st.button("Clear", key="clear_prioritized", use_container_width=True):
+                    st.session_state.prioritized_quartz = []
+                    auto_save_if_enabled()
+                    st.rerun()
+            
+            st.caption(f"Prioritized: {len(st.session_state.prioritized_quartz)} quartz")
         
         # Arts selection
         st.markdown("**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
@@ -331,7 +373,8 @@ with tab1:
                         quartz_set,
                         st.session_state.selected_arts,
                         game_data,
-                        max_builds=st.session_state.max_builds
+                        max_builds=st.session_state.max_builds,
+                        prioritized_quartz=set(st.session_state.prioritized_quartz)
                     )
                     
                     # Create a callback to update progress
