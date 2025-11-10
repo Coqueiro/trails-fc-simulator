@@ -1,0 +1,886 @@
+{
+  "quartz": [
+    {
+      "name": "Defense 1",
+      "family": "Defense",
+      "type": "Normal",
+      "elements": {
+        "Earth": 1
+      },
+      "effects": "DEF+5%",
+      "description": "+1 Earth, DEF+5%"
+    },
+    {
+      "name": "Defense 2",
+      "family": "Defense",
+      "type": "Normal",
+      "elements": {
+        "Earth": 2
+      },
+      "effects": "DEF+10%",
+      "description": "+2 Earth, DEF+10%"
+    },
+    {
+      "name": "Defense 3",
+      "family": "Defense",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3
+      },
+      "effects": "DEF+15%",
+      "description": "+3 Earth, DEF+15%"
+    },
+    {
+      "name": "Defense 3+",
+      "family": "Defense",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3
+      },
+      "effects": "DEF+20%",
+      "description": "+3 Earth, DEF+20%"
+    },
+    {
+      "name": "Break 1",
+      "family": "Break",
+      "type": "Normal",
+      "elements": {
+        "Earth": 1
+      },
+      "effects": "Stun Gauge dmg +15%, STR+10",
+      "description": "+1 Earth, Stun Gauge dmg +15%, STR+10"
+    },
+    {
+      "name": "Break 2",
+      "family": "Break",
+      "type": "Normal",
+      "elements": {
+        "Earth": 2
+      },
+      "effects": "Stun Gauge dmg +20%, STR+20",
+      "description": "+2 Earth, Stun Gauge dmg +20%, STR+20"
+    },
+    {
+      "name": "Break 3",
+      "family": "Break",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3
+      },
+      "effects": "Stun Gauge dmg +25%, STR+30",
+      "description": "+3 Earth, Stun Gauge dmg +25%, STR+30"
+    },
+    {
+      "name": "Break 3+",
+      "family": "Break",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3
+      },
+      "effects": "Stun Gauge dmg +30%, STR+50",
+      "description": "+3 Earth, Stun Gauge dmg +30%, STR+50"
+    },
+    {
+      "name": "Poison Blade",
+      "family": "Poison",
+      "type": "Blade",
+      "elements": {
+        "Earth": 1
+      },
+      "effects": "Poison (15%)",
+      "description": "+1 Earth, Poison (15%)"
+    },
+    {
+      "name": "Petrification Blade",
+      "family": "Petrification",
+      "type": "Blade",
+      "elements": {
+        "Earth": 2
+      },
+      "effects": "Petrify (15%)",
+      "description": "+2 Earth, Petrify (15%)"
+    },
+    {
+      "name": "Topaz Shield",
+      "family": "Topaz",
+      "type": "Shield",
+      "elements": {
+        "Earth": 2,
+        "Mirage": 2
+      },
+      "effects": "DEF/ADF Up when HP is critical",
+      "description": "+2 Earth, +2 Mirage, DEF/ADF Up when HP is critical"
+    },
+    {
+      "name": "Septium Vein",
+      "family": "Septium Vein",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3,
+        "Wind": 3
+      },
+      "effects": "Gain +30% sepith in battles",
+      "description": "+3 Earth, +3 Wind, Gain +30% sepith in battles"
+    },
+    {
+      "name": "Mind 1",
+      "family": "Mind",
+      "type": "Normal",
+      "elements": {
+        "Water": 1
+      },
+      "effects": "ATS+5%",
+      "description": "+1 Water, ATS+5%"
+    },
+    {
+      "name": "Mind 2",
+      "family": "Mind",
+      "type": "Normal",
+      "elements": {
+        "Water": 2
+      },
+      "effects": "ATS+10%",
+      "description": "+2 Water, ATS+10%"
+    },
+    {
+      "name": "Mind 3",
+      "family": "Mind",
+      "type": "Normal",
+      "elements": {
+        "Water": 3
+      },
+      "effects": "ATS+15%",
+      "description": "+3 Water, ATS+15%"
+    },
+    {
+      "name": "Mind 3+",
+      "family": "Mind",
+      "type": "Normal",
+      "elements": {
+        "Water": 3
+      },
+      "effects": "ATS+20%",
+      "description": "+3 Water, ATS+20%"
+    },
+    {
+      "name": "HP 1",
+      "family": "HP",
+      "type": "Normal",
+      "elements": {
+        "Water": 1
+      },
+      "effects": "HP+10%",
+      "description": "+1 Water, HP+10%"
+    },
+    {
+      "name": "HP 2",
+      "family": "HP",
+      "type": "Normal",
+      "elements": {
+        "Water": 2
+      },
+      "effects": "HP+20%",
+      "description": "+2 Water, HP+20%"
+    },
+    {
+      "name": "HP 3",
+      "family": "HP",
+      "type": "Normal",
+      "elements": {
+        "Water": 3
+      },
+      "effects": "HP+30%",
+      "description": "+3 Water, HP+30%"
+    },
+    {
+      "name": "HP 3+",
+      "family": "HP",
+      "type": "Normal",
+      "elements": {
+        "Water": 3
+      },
+      "effects": "HP+40%",
+      "description": "+3 Water, HP+40%"
+    },
+    {
+      "name": "Freeze Blade",
+      "family": "Freeze",
+      "type": "Blade",
+      "elements": {
+        "Water": 2
+      },
+      "effects": "Freeze (10%)",
+      "description": "+2 Water, Freeze (10%)"
+    },
+    {
+      "name": "Sapphire Shield",
+      "family": "Sapphire",
+      "type": "Shield",
+      "elements": {
+        "Water": 2,
+        "Fire": 2
+      },
+      "effects": "10% HP recovery when critical",
+      "description": "+2 Water, +2 Fire, 10% HP recovery when critical"
+    },
+    {
+      "name": "Heal",
+      "family": "Heal",
+      "type": "Normal",
+      "elements": {
+        "Water": 2,
+        "Wind": 2
+      },
+      "effects": "Gradual HP recovery on field",
+      "description": "+2 Water, +2 Wind, Gradual HP recovery on field"
+    },
+    {
+      "name": "Mercy",
+      "family": "Mercy",
+      "type": "Normal",
+      "elements": {
+        "Water": 3,
+        "Earth": 3
+      },
+      "effects": "Healing Arts Effect +30%",
+      "description": "+3 Water, +3 Earth, Healing Arts Effect +30%"
+    },
+    {
+      "name": "Attack 1",
+      "family": "Attack",
+      "type": "Normal",
+      "elements": {
+        "Fire": 1
+      },
+      "effects": "STR+5%, DEF-5%",
+      "description": "+1 Fire, STR+5%, DEF-5%"
+    },
+    {
+      "name": "Attack 2",
+      "family": "Attack",
+      "type": "Normal",
+      "elements": {
+        "Fire": 2
+      },
+      "effects": "STR+10%, DEF-10%",
+      "description": "+2 Fire, STR+10%, DEF-10%"
+    },
+    {
+      "name": "Attack 3",
+      "family": "Attack",
+      "type": "Normal",
+      "elements": {
+        "Fire": 3
+      },
+      "effects": "STR+15%, DEF-15%",
+      "description": "+3 Fire, STR+15%, DEF-15%"
+    },
+    {
+      "name": "Attack 3+",
+      "family": "Attack",
+      "type": "Normal",
+      "elements": {
+        "Fire": 3
+      },
+      "effects": "STR+20%, DEF-15%",
+      "description": "+3 Fire, STR+20%, DEF-15%"
+    },
+    {
+      "name": "Strike 1",
+      "family": "Strike",
+      "type": "Normal",
+      "elements": {
+        "Fire": 1
+      },
+      "effects": "CRT+3%",
+      "description": "+1 Fire, CRT+3%"
+    },
+    {
+      "name": "Strike 2",
+      "family": "Strike",
+      "type": "Normal",
+      "elements": {
+        "Fire": 2
+      },
+      "effects": "CRT+6%",
+      "description": "+2 Fire, CRT+6%"
+    },
+    {
+      "name": "Strike 3",
+      "family": "Strike",
+      "type": "Normal",
+      "elements": {
+        "Fire": 3
+      },
+      "effects": "CRT+9%",
+      "description": "+3 Fire, CRT+9%"
+    },
+    {
+      "name": "Strike 3+",
+      "family": "Strike",
+      "type": "Normal",
+      "elements": {
+        "Fire": 3
+      },
+      "effects": "CRT+10%, SPD+7",
+      "description": "+3 Fire, CRT+10%, SPD+7"
+    },
+    {
+      "name": "Burn Blade",
+      "family": "Burn",
+      "type": "Blade",
+      "elements": {
+        "Fire": 1
+      },
+      "effects": "Burn (15%)",
+      "description": "+1 Fire, Burn (15%)"
+    },
+    {
+      "name": "Seal Blade",
+      "family": "Seal",
+      "type": "Blade",
+      "elements": {
+        "Fire": 2
+      },
+      "effects": "Seal (15%)",
+      "description": "+2 Fire, Seal (15%)"
+    },
+    {
+      "name": "Ruby Shield",
+      "family": "Ruby",
+      "type": "Shield",
+      "elements": {
+        "Fire": 2,
+        "Earth": 2
+      },
+      "effects": "STR Up when HP is critical",
+      "description": "+2 Fire, +2 Earth, STR Up when HP is critical"
+    },
+    {
+      "name": "Ingenuity",
+      "family": "Ingenuity",
+      "type": "Normal",
+      "elements": {
+        "Fire": 3,
+        "Wind": 3
+      },
+      "effects": "Gradual EP recovery on field",
+      "description": "+3 Fire, +3 Wind, Gradual EP recovery on field"
+    },
+    {
+      "name": "Arts Defense 1",
+      "family": "Arts Defense",
+      "type": "Normal",
+      "elements": {
+        "Wind": 1
+      },
+      "effects": "ADF+5%, AEV+3%",
+      "description": "+1 Wind, ADF+5%, AEV+3%"
+    },
+    {
+      "name": "Arts Defense 2",
+      "family": "Arts Defense",
+      "type": "Normal",
+      "elements": {
+        "Wind": 2
+      },
+      "effects": "ADF+10%, AEV+6%",
+      "description": "+2 Wind, ADF+10%, AEV+6%"
+    },
+    {
+      "name": "Arts Defense 3",
+      "family": "Arts Defense",
+      "type": "Normal",
+      "elements": {
+        "Wind": 3
+      },
+      "effects": "ADF+15%, AEV+9%",
+      "description": "+3 Wind, ADF+15%, AEV+9%"
+    },
+    {
+      "name": "Arts Defense 3+",
+      "family": "Arts Defense",
+      "type": "Normal",
+      "elements": {
+        "Wind": 3
+      },
+      "effects": "ADF+20%, AEV+10%, SPD+7",
+      "description": "+3 Wind, ADF+20%, AEV+10%, SPD+7"
+    },
+    {
+      "name": "Evade 1",
+      "family": "Evade",
+      "type": "Normal",
+      "elements": {
+        "Wind": 1
+      },
+      "effects": "EVA+3%",
+      "description": "+1 Wind, EVA+3%"
+    },
+    {
+      "name": "Evade 2",
+      "family": "Evade",
+      "type": "Normal",
+      "elements": {
+        "Wind": 2
+      },
+      "effects": "EVA+6%",
+      "description": "+2 Wind, EVA+6%"
+    },
+    {
+      "name": "Evade 3",
+      "family": "Evade",
+      "type": "Normal",
+      "elements": {
+        "Wind": 3
+      },
+      "effects": "EVA+9%",
+      "description": "+3 Wind, EVA+9%"
+    },
+    {
+      "name": "Evade 3+",
+      "family": "Evade",
+      "type": "Normal",
+      "elements": {
+        "Wind": 3
+      },
+      "effects": "EVA+10%, SPD+7",
+      "description": "+3 Wind, EVA+10%, SPD+7"
+    },
+    {
+      "name": "Sleep Blade",
+      "family": "Sleep",
+      "type": "Blade",
+      "elements": {
+        "Wind": 2
+      },
+      "effects": "Sleep (15%)",
+      "description": "+2 Wind, Sleep (15%)"
+    },
+    {
+      "name": "Emerald Shield",
+      "family": "Emerald",
+      "type": "Shield",
+      "elements": {
+        "Wind": 2,
+        "Space": 2
+      },
+      "effects": "Foresight when HP is critical",
+      "description": "+2 Wind, +2 Space, Foresight when HP is critical"
+    },
+    {
+      "name": "Sweet Aroma",
+      "family": "Sweet Aroma",
+      "type": "Normal",
+      "elements": {
+        "Earth": 3,
+        "Water": 3,
+        "Fire": 3,
+        "Wind": 3
+      },
+      "effects": "Aggro \u2191 (200% field, 70% battle)",
+      "description": "+3 Earth, +3 Water, +3 Fire, +3 Wind, Aggro \u2191 (200% field, 70% battle)"
+    },
+    {
+      "name": "Fury",
+      "family": "Fury",
+      "type": "Normal",
+      "elements": {
+        "Wind": 3,
+        "Time": 3
+      },
+      "effects": "Magic dmg \u2191 with HP lost (up to x2)",
+      "description": "+3 Wind, +3 Time, Magic dmg \u2191 with HP lost (up to x2)"
+    },
+    {
+      "name": "Action 1",
+      "family": "Action",
+      "type": "Normal",
+      "elements": {
+        "Time": 1
+      },
+      "effects": "SPD+10%",
+      "description": "+1 Time, SPD+10%"
+    },
+    {
+      "name": "Action 2",
+      "family": "Action",
+      "type": "Normal",
+      "elements": {
+        "Time": 2
+      },
+      "effects": "SPD+20%",
+      "description": "+2 Time, SPD+20%"
+    },
+    {
+      "name": "Action 3",
+      "family": "Action",
+      "type": "Normal",
+      "elements": {
+        "Time": 3
+      },
+      "effects": "SPD+30%",
+      "description": "+3 Time, SPD+30%"
+    },
+    {
+      "name": "Action 3+",
+      "family": "Action",
+      "type": "Normal",
+      "elements": {
+        "Time": 3
+      },
+      "effects": "SPD+40%",
+      "description": "+3 Time, SPD+40%"
+    },
+    {
+      "name": "Cast 1",
+      "family": "Cast",
+      "type": "Normal",
+      "elements": {
+        "Time": 1,
+        "Mirage": 1
+      },
+      "effects": "Cast x0.7, ATS+10",
+      "description": "+1 Time, +1 Mirage, Cast x0.7, ATS+10"
+    },
+    {
+      "name": "Cast 2",
+      "family": "Cast",
+      "type": "Normal",
+      "elements": {
+        "Time": 2,
+        "Mirage": 2,
+        "Space": 1
+      },
+      "effects": "Cast x0.5, ATS+20",
+      "description": "+2 Time, +2 Mirage, +1 Space, Cast x0.5, ATS+20"
+    },
+    {
+      "name": "Cast 3",
+      "family": "Cast",
+      "type": "Normal",
+      "elements": {
+        "Time": 3,
+        "Mirage": 3,
+        "Space": 2
+      },
+      "effects": "Cast x0.3, ATS+30",
+      "description": "+3 Time, +3 Mirage, +2 Space, Cast x0.3, ATS+30"
+    },
+    {
+      "name": "Cast 3+",
+      "family": "Cast",
+      "type": "Normal",
+      "elements": {
+        "Time": 3,
+        "Mirage": 3,
+        "Space": 2
+      },
+      "effects": "Cast x0.2, ATS+50",
+      "description": "+3 Time, +3 Mirage, +2 Space, Cast x0.2, ATS+50"
+    },
+    {
+      "name": "Blind Blade",
+      "family": "Blind",
+      "type": "Blade",
+      "elements": {
+        "Time": 1
+      },
+      "effects": "Blind (15%)",
+      "description": "+1 Time, Blind (15%)"
+    },
+    {
+      "name": "Death Blade",
+      "family": "Death",
+      "type": "Blade",
+      "elements": {
+        "Time": 3
+      },
+      "effects": "Deathblow (10%)",
+      "description": "+3 Time, Deathblow (10%)"
+    },
+    {
+      "name": "Dark Shield",
+      "family": "Dark",
+      "type": "Shield",
+      "elements": {
+        "Time": 3,
+        "Water": 3
+      },
+      "effects": "SPD/MOV Up when HP critical",
+      "description": "+3 Time, +3 Water, SPD/MOV Up when HP critical"
+    },
+    {
+      "name": "Great Fortune",
+      "family": "Great Fortune",
+      "type": "Normal",
+      "elements": {
+        "Time": 5,
+        "Earth": 5
+      },
+      "effects": "Drop rate +50% in battles",
+      "description": "+5 Time, +5 Earth, Drop rate +50% in battles"
+    },
+    {
+      "name": "Hit 1",
+      "family": "Hit",
+      "type": "Normal",
+      "elements": {
+        "Space": 1
+      },
+      "effects": "ACC+60%, STR+10",
+      "description": "+1 Space, ACC+60%, STR+10"
+    },
+    {
+      "name": "Hit 2",
+      "family": "Hit",
+      "type": "Normal",
+      "elements": {
+        "Space": 2
+      },
+      "effects": "ACC+80%, STR+20",
+      "description": "+2 Space, ACC+80%, STR+20"
+    },
+    {
+      "name": "Hit 3",
+      "family": "Hit",
+      "type": "Normal",
+      "elements": {
+        "Space": 3
+      },
+      "effects": "ACC+100%, STR+30",
+      "description": "+3 Space, ACC+100%, STR+30"
+    },
+    {
+      "name": "Hit 3+",
+      "family": "Hit",
+      "type": "Normal",
+      "elements": {
+        "Space": 3
+      },
+      "effects": "ACC+150%, STR+50",
+      "description": "+3 Space, ACC+150%, STR+50"
+    },
+    {
+      "name": "EP Cut 1",
+      "family": "EP Cut",
+      "type": "Normal",
+      "elements": {
+        "Space": 1,
+        "Time": 1
+      },
+      "effects": "EP Cost -30%",
+      "description": "+1 Space, +1 Time, EP Cost -30%"
+    },
+    {
+      "name": "EP Cut 2",
+      "family": "EP Cut",
+      "type": "Normal",
+      "elements": {
+        "Space": 2,
+        "Time": 2,
+        "Mirage": 1
+      },
+      "effects": "EP Cost -40%",
+      "description": "+2 Space, +2 Time, +1 Mirage, EP Cost -40%"
+    },
+    {
+      "name": "EP Cut 3",
+      "family": "EP Cut",
+      "type": "Normal",
+      "elements": {
+        "Space": 3,
+        "Time": 3,
+        "Mirage": 2
+      },
+      "effects": "EP Cost -50%",
+      "description": "+3 Space, +3 Time, +2 Mirage, EP Cost -50%"
+    },
+    {
+      "name": "EP Cut 3+",
+      "family": "EP Cut",
+      "type": "Normal",
+      "elements": {
+        "Space": 3,
+        "Time": 3,
+        "Mirage": 2
+      },
+      "effects": "EP Cost -60%",
+      "description": "+3 Space, +3 Time, +2 Mirage, EP Cost -60%"
+    },
+    {
+      "name": "Mute Blade",
+      "family": "Mute",
+      "type": "Blade",
+      "elements": {
+        "Space": 3
+      },
+      "effects": "Mute (30%), STR+25",
+      "description": "+3 Space, Mute (30%), STR+25"
+    },
+    {
+      "name": "Golden Shield",
+      "family": "Golden",
+      "type": "Shield",
+      "elements": {
+        "Space": 3,
+        "Earth": 3
+      },
+      "effects": "Gradual CP recovery, DEF/ADF+50",
+      "description": "+3 Space, +3 Earth, Gradual CP recovery, DEF+50, ADF+50"
+    },
+    {
+      "name": "Heavenly Insight",
+      "family": "Heavenly Insight",
+      "type": "Normal",
+      "elements": {
+        "Space": 5,
+        "Water": 5
+      },
+      "effects": "Arts Range +5m",
+      "description": "+5 Space, +5 Water, Arts Range +5m"
+    },
+    {
+      "name": "Lone Blade",
+      "family": "Lone Blade",
+      "type": "Normal",
+      "elements": {
+        "Space": 5,
+        "Fire": 5
+      },
+      "effects": "Physical dmg \u2191 with HP lost (x2)",
+      "description": "+5 Space, +5 Fire, Physical dmg \u2191 with HP lost (x2)"
+    },
+    {
+      "name": "Impede 1",
+      "family": "Impede",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 1
+      },
+      "effects": "Delay (30% chance)",
+      "description": "+1 Mirage, Delay (30% chance)"
+    },
+    {
+      "name": "Impede 2",
+      "family": "Impede",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 2
+      },
+      "effects": "Delay (60% chance)",
+      "description": "+2 Mirage, Delay (60% chance)"
+    },
+    {
+      "name": "Impede 3",
+      "family": "Impede",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 3
+      },
+      "effects": "Delay (90% chance)",
+      "description": "+3 Mirage, Delay (90% chance)"
+    },
+    {
+      "name": "Impede 3+",
+      "family": "Impede",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 3
+      },
+      "effects": "Delay (100%), STR+50",
+      "description": "+3 Mirage, Delay (100%), STR+50"
+    },
+    {
+      "name": "EP 1",
+      "family": "EP",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 1,
+        "Space": 1
+      },
+      "effects": "EP+20%",
+      "description": "+1 Mirage, +1 Space, EP+20%"
+    },
+    {
+      "name": "EP 2",
+      "family": "EP",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 2,
+        "Space": 2,
+        "Time": 1
+      },
+      "effects": "EP+35%",
+      "description": "+2 Mirage, +2 Space, +1 Time, EP+35%"
+    },
+    {
+      "name": "EP 3",
+      "family": "EP",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 3,
+        "Space": 3,
+        "Time": 2
+      },
+      "effects": "EP+50%",
+      "description": "+3 Mirage, +3 Space, +2 Time, EP+50%"
+    },
+    {
+      "name": "EP 3+",
+      "family": "EP",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 3,
+        "Space": 3,
+        "Time": 2
+      },
+      "effects": "EP+65%",
+      "description": "+3 Mirage, +3 Space, +2 Time, EP+65%"
+    },
+    {
+      "name": "Chaos Blade",
+      "family": "Chaos",
+      "type": "Blade",
+      "elements": {
+        "Mirage": 3
+      },
+      "effects": "Confusion (15%), STR+25",
+      "description": "+3 Mirage, Confusion (15%), STR+25"
+    },
+    {
+      "name": "Silver Shield",
+      "family": "Silver",
+      "type": "Shield",
+      "elements": {
+        "Mirage": 3,
+        "Fire": 3
+      },
+      "effects": "ATS Up when HP is critical",
+      "description": "+3 Mirage, +3 Fire, ATS Up when HP is critical"
+    },
+    {
+      "name": "Heat Haze",
+      "family": "Heat Haze",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 3,
+        "Time": 3,
+        "Space": 3
+      },
+      "effects": "Aggro \u2193 (field + battle 70%)",
+      "description": "+3 Mirage, +3 Time, +3 Space, Aggro \u2193 (field + battle 70%)"
+    },
+    {
+      "name": "Hidden Leaf",
+      "family": "Hidden Leaf",
+      "type": "Normal",
+      "elements": {
+        "Mirage": 5,
+        "Wind": 5
+      },
+      "effects": "ACC+100%, EVA+25%, AEV+25%, CRT+10%",
+      "description": "+5 Mirage, +5 Wind, ACC+100%, EVA+25%, AEV+25%, CRT+10%"
+    }
+  ]
+}

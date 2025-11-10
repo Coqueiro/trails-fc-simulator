@@ -1,0 +1,512 @@
+{
+  "arts": [
+    {
+      "name": "Stone Hammer",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 1
+      },
+      "ep_cost": 10,
+      "effect": "Arts (C+)",
+      "range": "Single",
+      "description": "Earth damage to single enemy, Petrify 10%"
+    },
+    {
+      "name": "Earth Lance",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 2
+      },
+      "ep_cost": 30,
+      "effect": "Arts (C+)",
+      "range": "Fan (M)",
+      "description": "Earth damage to fan area, Petrify 20%"
+    },
+    {
+      "name": "Petrify Breath",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 3,
+        "Wind": 2
+      },
+      "ep_cost": 60,
+      "effect": "Arts (B)",
+      "range": "Fan (L)",
+      "description": "Earth damage to large fan area, Poison/Petrify 30%"
+    },
+    {
+      "name": "Stone Impact",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 4
+      },
+      "ep_cost": 120,
+      "effect": "Arts (A)",
+      "range": "Target - Circle (M)",
+      "description": "Earth damage to target circle, Heavy Stun"
+    },
+    {
+      "name": "Titanic Roar",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 5,
+        "Space": 3
+      },
+      "ep_cost": 300,
+      "effect": "Arts (S)",
+      "range": "All",
+      "description": "Earth damage to all enemies, DEF ↓"
+    },
+    {
+      "name": "Earth Guard",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 2,
+        "Mirage": 2
+      },
+      "ep_cost": 60,
+      "effect": "Support",
+      "range": "Target - Circle (L)",
+      "description": "Shield (S) for allies in large circle"
+    },
+    {
+      "name": "Earth Wall",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 4,
+        "Space": 3
+      },
+      "ep_cost": 240,
+      "effect": "Support",
+      "range": "Target - Circle (L)",
+      "description": "Invulnerability for allies in large circle"
+    },
+    {
+      "name": "Crest",
+      "element": "Earth",
+      "requirements": {
+        "Earth": 1,
+        "Mirage": 1
+      },
+      "ep_cost": 30,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "DEF ↑ (5 turns)/HP Regen/Cure Debuffs"
+    },
+    {
+      "name": "Aqua Bleed",
+      "element": "Water",
+      "requirements": {
+        "Water": 1
+      },
+      "ep_cost": 10,
+      "effect": "Arts (C+)",
+      "range": "Single",
+      "description": "Water damage to single enemy, Mute (30%)"
+    },
+    {
+      "name": "Blue Impact",
+      "element": "Water",
+      "requirements": {
+        "Water": 3
+      },
+      "ep_cost": 120,
+      "effect": "Arts (A+)",
+      "range": "Target - Circle (S)",
+      "description": "Water damage to small circle, Mute (60%)"
+    },
+    {
+      "name": "Diamond Dust",
+      "element": "Water",
+      "requirements": {
+        "Water": 5,
+        "Space": 5
+      },
+      "ep_cost": 300,
+      "effect": "Arts (S+)",
+      "range": "Target - Circle (M)",
+      "description": "Water damage to medium circle, Freeze (40%)"
+    },
+    {
+      "name": "Tear",
+      "element": "Water",
+      "requirements": {
+        "Water": 1
+      },
+      "ep_cost": 10,
+      "effect": "Recovery",
+      "range": "Single Ally",
+      "description": "Heal (S) HP for single ally"
+    },
+    {
+      "name": "Teara",
+      "element": "Water",
+      "requirements": {
+        "Water": 3
+      },
+      "ep_cost": 30,
+      "effect": "Recovery",
+      "range": "Single Ally",
+      "description": "Heal (M) HP for single ally"
+    },
+    {
+      "name": "Tearal",
+      "element": "Water",
+      "requirements": {
+        "Water": 5
+      },
+      "ep_cost": 60,
+      "effect": "Recovery",
+      "range": "Single Ally",
+      "description": "Heal (L) HP for single ally"
+    },
+    {
+      "name": "La Tear",
+      "element": "Water",
+      "requirements": {
+        "Water": 2,
+        "Space": 2
+      },
+      "ep_cost": 40,
+      "effect": "Recovery",
+      "range": "Ally - Circle (L)",
+      "description": "Heal (S) HP for allies in large circle"
+    },
+    {
+      "name": "La Teara",
+      "element": "Water",
+      "requirements": {
+        "Water": 4,
+        "Wind": 2,
+        "Space": 2
+      },
+      "ep_cost": 100,
+      "effect": "Recovery",
+      "range": "Ally - Circle (LL)",
+      "description": "Heal (M) HP for allies in extra large circle"
+    },
+    {
+      "name": "Curia",
+      "element": "Water",
+      "requirements": {
+        "Water": 1,
+        "Mirage": 1
+      },
+      "ep_cost": 10,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "Heal 10% HP / Remove Debuffs"
+    },
+    {
+      "name": "La Curia",
+      "element": "Water",
+      "requirements": {
+        "Water": 3,
+        "Mirage": 2
+      },
+      "ep_cost": 30,
+      "effect": "Support",
+      "range": "Ally - Circle (LL)",
+      "description": "Heal 20% HP / Remove Debuffs for allies in extra large circle"
+    },
+    {
+      "name": "Thelas",
+      "element": "Water",
+      "requirements": {
+        "Water": 4,
+        "Space": 2
+      },
+      "ep_cost": 30,
+      "effect": "Recovery",
+      "range": "Single Ally",
+      "description": "Revive / Heal (S) HP"
+    },
+    {
+      "name": "Fire Bolt",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 1
+      },
+      "ep_cost": 10,
+      "effect": "Arts (C+)",
+      "range": "Single",
+      "description": "Fire damage to single enemy, Burn (20%)"
+    },
+    {
+      "name": "Flare Arrow",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 2
+      },
+      "ep_cost": 60,
+      "effect": "Arts (B)",
+      "range": "Line (S)",
+      "description": "Fire damage to small line, Burn (30%)"
+    },
+    {
+      "name": "Napalm Blow",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 3,
+        "Wind": 2
+      },
+      "ep_cost": 120,
+      "effect": "Arts (A)",
+      "range": "Circle (M)",
+      "description": "Fire damage to medium circle, Burn (40%)"
+    },
+    {
+      "name": "Fire Bolt EX",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 4
+      },
+      "ep_cost": 240,
+      "effect": "Arts (S)",
+      "range": "Circle (S)",
+      "description": "Fire damage to small circle, Burn (50%)"
+    },
+    {
+      "name": "Spiral Flare",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 5,
+        "Wind": 2,
+        "Space": 4
+      },
+      "ep_cost": 330,
+      "effect": "Arts (S+)",
+      "range": "Circle (L)",
+      "description": "Fire damage to large circle, Burn (60%)"
+    },
+    {
+      "name": "Volcanic Raze",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 5,
+        "Earth": 3,
+        "Mirage": 5
+      },
+      "ep_cost": 360,
+      "effect": "Arts (SS)",
+      "range": "Circle (S)",
+      "description": "Massive fire damage to small circle, Burn (90%)"
+    },
+    {
+      "name": "Forte",
+      "element": "Fire",
+      "requirements": {
+        "Fire": 1,
+        "Mirage": 1
+      },
+      "ep_cost": 30,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "STR ↑ (5 turns)/CP Regen/Cure Debuffs"
+    },
+    {
+      "name": "Air Strike",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 1
+      },
+      "ep_cost": 10,
+      "effect": "Arts (C+)",
+      "range": "Single",
+      "description": "Wind damage to single enemy, Blind (20%)"
+    },
+    {
+      "name": "Aerial",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 3
+      },
+      "ep_cost": 90,
+      "effect": "Arts (B)",
+      "range": "Target - Circle (L)",
+      "description": "Wind damage to large circle, Blind (40%)"
+    },
+    {
+      "name": "Aero Storm",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 4,
+        "Time": 2,
+        "Mirage": 2
+      },
+      "ep_cost": 240,
+      "effect": "Arts (S)",
+      "range": "Target - Circle (LL)",
+      "description": "Wind damage to extra large circle, Blind (60%)"
+    },
+    {
+      "name": "Lightning",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 3,
+        "Space": 2
+      },
+      "ep_cost": 120,
+      "effect": "Arts (A)",
+      "range": "Line (S)",
+      "description": "Wind damage to small line, Seal (20%)"
+    },
+    {
+      "name": "Plasma Wave",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 5,
+        "Fire": 3,
+        "Space": 5
+      },
+      "ep_cost": 300,
+      "effect": "Arts (S+)",
+      "range": "Line (M)",
+      "description": "Wind damage to medium line, Seal (40%)"
+    },
+    {
+      "name": "Sylphen Guard",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 2,
+        "Mirage": 2
+      },
+      "ep_cost": 60,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "Debuff Immunity/ADF ↑ (5 turns)/Cure Debuffs"
+    },
+    {
+      "name": "Sylphen Wing",
+      "element": "Wind",
+      "requirements": {
+        "Wind": 4,
+        "Mirage": 4
+      },
+      "ep_cost": 240,
+      "effect": "Support",
+      "range": "All Allies",
+      "description": "ATS ↑ (5 turns)/Foresight (5 turns)/Cure Debuffs"
+    },
+    {
+      "name": "Soul Blur",
+      "element": "Time",
+      "requirements": {
+        "Time": 1
+      },
+      "ep_cost": 20,
+      "effect": "Arts (B)",
+      "range": "Single",
+      "description": "Time damage to single enemy, Heavy Stun"
+    },
+    {
+      "name": "Shadow Spear",
+      "element": "Time",
+      "requirements": {
+        "Time": 2
+      },
+      "ep_cost": 60,
+      "effect": "Arts (A)",
+      "range": "Single",
+      "description": "Time damage to single enemy, Deathblow (10%)"
+    },
+    {
+      "name": "Hell Gate",
+      "element": "Time",
+      "requirements": {
+        "Time": 3,
+        "Space": 2,
+        "Fire": 2
+      },
+      "ep_cost": 120,
+      "effect": "Arts (A+)",
+      "range": "Fan (L)",
+      "description": "Time damage to large fan, Poison (90%)"
+    },
+    {
+      "name": "White Gehenna",
+      "element": "Time",
+      "requirements": {
+        "Time": 5,
+        "Mirage": 5
+      },
+      "ep_cost": 240,
+      "effect": "Arts (S)",
+      "range": "Target - Circle (M)",
+      "description": "Time damage to medium circle, Blind (30%)/STR ↓"
+    },
+    {
+      "name": "Clock Up",
+      "element": "Time",
+      "requirements": {
+        "Time": 1,
+        "Space": 1
+      },
+      "ep_cost": 10,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "SPD/MOV ↑ (5 turns)/Cure Debuffs"
+    },
+    {
+      "name": "Clock Up EX",
+      "element": "Time",
+      "requirements": {
+        "Time": 3,
+        "Space": 3
+      },
+      "ep_cost": 240,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "Quick/SPD/MOV ↑↑ (5 turns)/Cure Debuffs"
+    },
+    {
+      "name": "Anti-Sept",
+      "element": "Time",
+      "requirements": {
+        "Time": 2,
+        "Mirage": 2
+      },
+      "ep_cost": 120,
+      "effect": "Debilitate",
+      "range": "Single",
+      "description": "Impede/Mute (200%)/Remove Buffs"
+    },
+    {
+      "name": "Anti-Sept All",
+      "element": "Time",
+      "requirements": {
+        "Time": 3,
+        "Mirage": 3
+      },
+      "ep_cost": 240,
+      "effect": "Debilitate",
+      "range": "All",
+      "description": "Impede/Mute (200%)/Remove Buffs for all enemies"
+    },
+    {
+      "name": "Saint",
+      "element": "Mirage",
+      "requirements": {
+        "Mirage": 2,
+        "Water": 1,
+        "Wind": 1,
+        "Space": 1
+      },
+      "ep_cost": 60,
+      "effect": "Support",
+      "range": "Single Ally",
+      "description": "All Stats ↑ (5 turns)/Cure Debuffs"
+    },
+    {
+      "name": "Chaos Brand",
+      "element": "Mirage",
+      "requirements": {
+        "Mirage": 3
+      },
+      "ep_cost": 60,
+      "effect": "Debilitate",
+      "range": "Single",
+      "description": "Confuse/Poison (90%)/DEF/ADF/SPD↓↓"
+    }
+  ]
+}
