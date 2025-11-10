@@ -5,6 +5,7 @@ import json
 from typing import Set, List, Dict
 from helpers import GameData, Character
 from tree_structure import OrbmentTree, SlotNode
+from ordering import LexicographicOrdering
 
 
 class BuildFinder:
@@ -106,7 +107,7 @@ class BuildFinder:
 
     def _populate_tree_recursive(self, tree: OrbmentTree, node_index: int,
                                  available_quartz: Set[str], line_placements: Dict,
-                                 last_quartz_index_per_line: Dict[int, int]) -> None:
+                                 ordering: LexicographicOrdering) -> None:
         """
         Recursively populate the tree with quartz.
 
@@ -115,7 +116,7 @@ class BuildFinder:
             node_index: Index of current node in tree.all_nodes
             available_quartz: Set of quartz available for this placement
             line_placements: Dict tracking blade/shield placements per line
-            last_quartz_index_per_line: Dict tracking last quartz index used per line for lexicographic ordering
+            ordering: LexicographicOrdering instance tracking ordering constraints
         """
         # Early exit if we've found enough builds
         if len(self.valid_builds) >= self.max_builds:
@@ -151,27 +152,13 @@ class BuildFinder:
         # Get current node
         current_node = tree.all_nodes[node_index]
 
-        # Lexicographic ordering optimization:
-        # Only apply ordering for linear segments (nodes whose parent is not shared/branching)
-        # This eliminates redundant permutations within each line while preserving
-        # independence between different branches
-        apply_ordering = (current_node.parent is not None and
-                          not current_node.parent.is_shared())
-
-        # Get minimum index for ordering constraint
-        # Only consider quartz with index > last used index on this line
-        min_quartz_index = -1
-        if apply_ordering:
-            line_idx = current_node.line_index
-            min_quartz_index = last_quartz_index_per_line.get(line_idx, -1)
-
         # Sort available quartz for consistent ordering
-        sorted_quartz = sorted(available_quartz)
+        sorted_quartz = ordering.get_sorted_available_quartz(available_quartz)
 
         # Try placing each available quartz that respects restrictions
         for quartz_idx, quartz_name in enumerate(sorted_quartz):
             # Skip if violates lexicographic ordering
-            if apply_ordering and quartz_idx <= min_quartz_index:
+            if ordering.should_skip_quartz(current_node, quartz_idx):
                 continue
 
             if current_node.can_place_quartz(quartz_name, self.game_data):
@@ -189,15 +176,14 @@ class BuildFinder:
                 remaining = self._calculate_remaining_quartz(
                     quartz_name, available_quartz, current_node, line_placements_copy)
 
-                # Update last quartz index for this line if ordering applies
-                last_index_copy = last_quartz_index_per_line.copy()
-                if apply_ordering:
-                    last_index_copy[current_node.line_index] = quartz_idx
+                # Copy and update ordering state for this branch
+                ordering_copy = ordering.copy()
+                ordering_copy.update_last_index(current_node, quartz_idx)
 
                 # Recurse to next node
                 self._populate_tree_recursive(tree, node_index + 1,
                                               remaining, line_placements_copy,
-                                              last_index_copy)
+                                              ordering_copy)
 
                 # Backtrack - clear this placement for next iteration
                 current_node.placed_quartz = None
@@ -232,8 +218,9 @@ class BuildFinder:
                 f"Searching with {len(self.relevant_quartz)} relevant quartz")
 
         # Start recursive population from the first node
-        # Initialize with empty last_quartz_index tracking
-        self._populate_tree_recursive(tree, 0, self.relevant_quartz, {}, {})
+        # Initialize with fresh ordering tracker
+        self._populate_tree_recursive(
+            tree, 0, self.relevant_quartz, {}, LexicographicOrdering())
 
         if verbose:
             print(f"\n{'='*50}")

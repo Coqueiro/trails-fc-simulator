@@ -369,9 +369,10 @@ with tab2:
     # Display counter after multiselect
     st.write(f"**Selected: {len(selected_quartz)} quartz**")
     
-    # Update session state
-    if selected_quartz != st.session_state.selected_quartz:
-        st.session_state.selected_quartz = selected_quartz
+    # Update session state immediately
+    old_quartz = st.session_state.selected_quartz
+    st.session_state.selected_quartz = selected_quartz
+    if selected_quartz != old_quartz:
         auto_save_if_enabled()
     
     st.divider()
@@ -403,9 +404,10 @@ with tab2:
     # Display counter after multiselect
     st.write(f"**Selected: {len(selected_arts)} arts**")
     
-    # Update session state
-    if selected_arts != st.session_state.selected_arts:
-        st.session_state.selected_arts = selected_arts
+    # Update session state immediately
+    old_arts = st.session_state.selected_arts
+    st.session_state.selected_arts = selected_arts
+    if selected_arts != old_arts:
         auto_save_if_enabled()
 
 with tab3:
