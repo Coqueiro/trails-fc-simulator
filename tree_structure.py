@@ -220,6 +220,56 @@ class OrbmentTree:
         # Use the helper function to calculate elements
         return game_data.element_calc.calculate_elements(placed_quartz)
 
+    def calculate_unlocked_arts(self, game_data: GameData) -> Set[str]:
+        """
+        Calculate which arts are unlocked by the current tree configuration.
+
+        An art is unlocked if at least one line (path from root to leaf) has
+        sufficient elemental values to meet all the art's requirements.
+
+        Args:
+            game_data: Game data for art requirements
+
+        Returns:
+            Set of art names that are unlocked
+        """
+        unlocked_arts = set()
+
+        # Get all paths (each path represents one complete line)
+        paths = self.get_all_paths()
+
+        for path in paths:
+            # Calculate elements for this line
+            quartz_in_line = {node.placed_quartz for node in path
+                              if node.placed_quartz is not None}
+
+            if not quartz_in_line:
+                continue
+
+            line_elements = game_data.element_calc.calculate_elements(
+                quartz_in_line)
+
+            # Check which arts this line unlocks
+            for art_name, art in game_data.arts_map.items():
+                # Check if all requirements are met
+                if all(line_elements.get(elem, 0) >= value
+                       for elem, value in art.requirements.items()):
+                    unlocked_arts.add(art_name)
+
+        return unlocked_arts
+
+    def count_unlocked_arts(self, game_data: GameData) -> int:
+        """
+        Count how many arts are unlocked by the current tree configuration.
+
+        Args:
+            game_data: Game data for art requirements
+
+        Returns:
+            Number of unique arts unlocked
+        """
+        return len(self.calculate_unlocked_arts(game_data))
+
 
 # Example usage
 if __name__ == "__main__":

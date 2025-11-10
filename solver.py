@@ -8,14 +8,22 @@ from tree_structure import OrbmentTree, SlotNode
 
 
 class BuildFinder:
-    """Class to find valid quartz builds through recursive tree population."""
+    """
+    Class to find valid quartz builds through recursive tree population.
+
+    Uses lexicographic ordering optimization to eliminate redundant builds:
+    - Quartz within each line are placed in sorted order
+    - Ordering is NOT applied to shared/branching nodes (preserves independence between branches)
+    - Reduces search space from permutations to combinations within each line
+    """
 
     def __init__(self, character: Character, quartz_pool: Set[str],
-                 desired_arts: List[str], game_data: GameData):
+                 desired_arts: List[str], game_data: GameData, max_builds: int = 50):
         self.character = character
         self.quartz_pool = quartz_pool
         self.desired_arts = desired_arts
         self.game_data = game_data
+        self.max_builds = max_builds
 
         # Calculate required elements
         desired_art_objs = [game_data.arts_map[name]
@@ -41,6 +49,7 @@ class BuildFinder:
         print(f"Available quartz: {len(self.quartz_pool)}")
         print(f"Relevant quartz: {len(self.relevant_quartz)}")
         print(f"Required elements: {self.required_elements}")
+        print(f"Max builds to find: {self.max_builds}")
 
     def _calculate_remaining_quartz(self, used_quartz: str, available: Set[str],
                                     current_node: SlotNode, line_placements: Dict) -> Set[str]:
@@ -96,7 +105,8 @@ class BuildFinder:
         return remaining
 
     def _populate_tree_recursive(self, tree: OrbmentTree, node_index: int,
-                                 available_quartz: Set[str], line_placements: Dict) -> None:
+                                 available_quartz: Set[str], line_placements: Dict,
+                                 last_quartz_index_per_line: Dict[int, int]) -> None:
         """
         Recursively populate the tree with quartz.
 
@@ -105,7 +115,12 @@ class BuildFinder:
             node_index: Index of current node in tree.all_nodes
             available_quartz: Set of quartz available for this placement
             line_placements: Dict tracking blade/shield placements per line
+            last_quartz_index_per_line: Dict tracking last quartz index used per line for lexicographic ordering
         """
+        # Early exit if we've found enough builds
+        if len(self.valid_builds) >= self.max_builds:
+            return
+
         # Base case: all nodes filled
         if node_index >= len(tree.all_nodes):
             # Tree is complete, check if it meets requirements
@@ -127,7 +142,7 @@ class BuildFinder:
                         for node in tree.all_nodes
                     ],
                     'elements': elements.copy(),
-                    'total_arts': 0  # Will be calculated later if needed
+                    'total_arts': 0  # Will be calculated after search
                 }
                 self.valid_builds.append(build_copy)
                 # print(f"  ✓ Found valid build #{len(self.valid_builds)}")
@@ -136,8 +151,29 @@ class BuildFinder:
         # Get current node
         current_node = tree.all_nodes[node_index]
 
+        # Lexicographic ordering optimization:
+        # Only apply ordering for linear segments (nodes whose parent is not shared/branching)
+        # This eliminates redundant permutations within each line while preserving
+        # independence between different branches
+        apply_ordering = (current_node.parent is not None and
+                          not current_node.parent.is_shared())
+
+        # Get minimum index for ordering constraint
+        # Only consider quartz with index > last used index on this line
+        min_quartz_index = -1
+        if apply_ordering:
+            line_idx = current_node.line_index
+            min_quartz_index = last_quartz_index_per_line.get(line_idx, -1)
+
+        # Sort available quartz for consistent ordering
+        sorted_quartz = sorted(available_quartz)
+
         # Try placing each available quartz that respects restrictions
-        for quartz_name in available_quartz:
+        for quartz_idx, quartz_name in enumerate(sorted_quartz):
+            # Skip if violates lexicographic ordering
+            if apply_ordering and quartz_idx <= min_quartz_index:
+                continue
+
             if current_node.can_place_quartz(quartz_name, self.game_data):
                 # Place the quartz
                 current_node.placed_quartz = quartz_name
@@ -153,9 +189,15 @@ class BuildFinder:
                 remaining = self._calculate_remaining_quartz(
                     quartz_name, available_quartz, current_node, line_placements_copy)
 
+                # Update last quartz index for this line if ordering applies
+                last_index_copy = last_quartz_index_per_line.copy()
+                if apply_ordering:
+                    last_index_copy[current_node.line_index] = quartz_idx
+
                 # Recurse to next node
                 self._populate_tree_recursive(tree, node_index + 1,
-                                              remaining, line_placements_copy)
+                                              remaining, line_placements_copy,
+                                              last_index_copy)
 
                 # Backtrack - clear this placement for next iteration
                 current_node.placed_quartz = None
@@ -164,14 +206,22 @@ class BuildFinder:
         """
         Find all valid builds using recursive tree population.
 
+        Searches until max_builds is reached, then calculates total unlocked arts
+        for each build and sorts by total arts (descending).
+
         Args:
             verbose: Whether to print progress information
 
         Returns:
-            List of valid builds (each build is a dict with 'placements', 'elements', etc.)
+            List of valid builds sorted by total arts (descending), each build is a dict with:
+            - 'placements': List of quartz placements
+            - 'elements': Total elements achieved
+            - 'total_arts': Number of arts unlocked
+            - 'unlocked_arts': Set of art names unlocked
         """
         if verbose:
-            print(f"\nStarting recursive search...")
+            print(
+                f"\nStarting recursive search (max {self.max_builds} builds)...")
 
         # Create the tree structure for this character
         tree = OrbmentTree(self.character)
@@ -182,13 +232,39 @@ class BuildFinder:
                 f"Searching with {len(self.relevant_quartz)} relevant quartz")
 
         # Start recursive population from the first node
-        self._populate_tree_recursive(tree, 0, self.relevant_quartz, {})
+        # Initialize with empty last_quartz_index tracking
+        self._populate_tree_recursive(tree, 0, self.relevant_quartz, {}, {})
 
         if verbose:
             print(f"\n{'='*50}")
             print(
                 f"Search complete! Found {len(self.valid_builds)} valid builds")
+            print("Calculating unlocked arts for each build...")
             print(f"{'='*50}")
+
+        # Calculate total arts for each build
+        for build in self.valid_builds:
+            # Reconstruct the tree with this build's placements
+            tree.reset()
+            for placement in build['placements']:
+                # Find the node and place the quartz
+                for node in tree.all_nodes:
+                    if (node.line_index == placement['line_index'] and
+                            node.slot_index == placement['slot_index']):
+                        node.placed_quartz = placement['quartz']
+                        break
+
+            # Calculate unlocked arts
+            unlocked_arts = tree.calculate_unlocked_arts(self.game_data)
+            build['total_arts'] = len(unlocked_arts)
+            build['unlocked_arts'] = unlocked_arts
+
+        # Sort by total arts (descending) - builds with more arts first
+        self.valid_builds.sort(key=lambda b: b['total_arts'], reverse=True)
+
+        if verbose and self.valid_builds:
+            print(
+                f"Best build unlocks {self.valid_builds[0]['total_arts']} arts")
 
         return self.valid_builds
 
