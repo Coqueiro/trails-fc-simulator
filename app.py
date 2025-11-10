@@ -80,6 +80,23 @@ def load_cached_results(cache_key):
     
     return builds
 
+def count_cache_items():
+    """Count the number of cached results."""
+    if not CACHE_DIR.exists():
+        return 0
+    return len(list(CACHE_DIR.glob("*.json")))
+
+def clear_cache():
+    """Clear all cached results."""
+    if not CACHE_DIR.exists():
+        return 0
+    
+    count = 0
+    for cache_file in CACHE_DIR.glob("*.json"):
+        cache_file.unlink()
+        count += 1
+    return count
+
 # Last session file
 LAST_SESSION_FILE = SETTINGS_DIR / ".last_session.json"
 
@@ -275,6 +292,17 @@ with st.sidebar:
     st.write(f"**Quartz:** {len(st.session_state.selected_quartz)}")
     st.write(f"**Prioritized:** {len(st.session_state.prioritized_quartz)}")
     st.write(f"**Arts:** {len(st.session_state.selected_arts)}")
+    
+    st.divider()
+    
+    # Cache management
+    st.subheader("💾 Cache Management")
+    cache_count = count_cache_items()
+    st.write(f"**Cached searches:** {cache_count}")
+    if st.button("🗑️ Clear Cache", use_container_width=True, disabled=(cache_count == 0)):
+        cleared = clear_cache()
+        st.success(f"Cleared {cleared} cached search{'es' if cleared != 1 else ''}!")
+        st.rerun()
 
 
 # Main content
