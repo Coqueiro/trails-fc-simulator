@@ -203,46 +203,26 @@ class OrbmentTree:
         for node in self.all_nodes:
             node.placed_quartz = None
 
-    def calculate_elements(self, game_data: GameData) -> dict:
+    def calculate_elements_for_path(self, path: List['SlotNode'], game_data: GameData) -> dict:
         """
-        Calculate maximum elemental values across all lines in the tree.
-
-        Since lines are independent (only shared nodes contribute to multiple lines),
-        we calculate elements for each line separately and return the maximum value
-        for each element across all lines.
+        Calculate elemental values for a specific line (path).
 
         Args:
+            path: List of nodes representing a line from root to leaf
             game_data: Game data for element calculation
 
         Returns:
-            Dictionary mapping element names to maximum values across all lines
+            Dictionary mapping element names to values for this line
         """
-        # Get all paths (lines)
-        paths = self.get_all_paths()
+        # Get quartz in this line (includes shared nodes)
+        quartz_in_line = {node.placed_quartz for node in path
+                          if node.placed_quartz is not None}
 
-        if not paths:
+        if not quartz_in_line:
             return {}
 
-        # Calculate elements for each line
-        max_elements = {}
-
-        for path in paths:
-            # Get quartz in this line (includes shared nodes)
-            quartz_in_line = {node.placed_quartz for node in path
-                              if node.placed_quartz is not None}
-
-            if not quartz_in_line:
-                continue
-
-            # Calculate elements for this line
-            line_elements = game_data.element_calc.calculate_elements(
-                quartz_in_line)
-
-            # Update maximum values
-            for elem, value in line_elements.items():
-                max_elements[elem] = max(max_elements.get(elem, 0), value)
-
-        return max_elements
+        # Calculate elements for this line
+        return game_data.element_calc.calculate_elements(quartz_in_line)
 
     def calculate_unlocked_arts(self, game_data: GameData) -> Set[str]:
         """
@@ -264,14 +244,10 @@ class OrbmentTree:
 
         for path in paths:
             # Calculate elements for this line
-            quartz_in_line = {node.placed_quartz for node in path
-                              if node.placed_quartz is not None}
+            line_elements = self.calculate_elements_for_path(path, game_data)
 
-            if not quartz_in_line:
+            if not line_elements:
                 continue
-
-            line_elements = game_data.element_calc.calculate_elements(
-                quartz_in_line)
 
             # Check which arts this line unlocks
             for art_name, art in game_data.arts_map.items():

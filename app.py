@@ -361,9 +361,25 @@ with tab1:
                                         st.write(f"  • Slot {placement['slot_index']}: {placement['quartz']}")
                             
                             with col2:
-                                st.subheader("Elements")
-                                for elem, value in sorted(build['elements'].items()):
-                                    st.write(f"**{elem}:** {value}")
+                                st.subheader("Lines & Elements")
+                                # Reconstruct tree to show elements per line
+                                from tree_structure import OrbmentTree
+                                tree = OrbmentTree(character)
+                                for placement in build['placements']:
+                                    for node in tree.all_nodes:
+                                        if (node.line_index == placement['line_index'] and
+                                            node.slot_index == placement['slot_index']):
+                                            node.placed_quartz = placement['quartz']
+                                            break
+                                
+                                # Show elements for each line
+                                for path_idx, path in enumerate(tree.get_all_paths()):
+                                    line_elements = tree.calculate_elements_for_path(path, game_data)
+                                    if line_elements:
+                                        st.markdown(f"**Line {path_idx + 1}:**")
+                                        for elem, value in sorted(line_elements.items()):
+                                            st.caption(f"{elem}: {value}")
+                                        st.write("")  # spacing
                                 
                                 st.divider()
                                 

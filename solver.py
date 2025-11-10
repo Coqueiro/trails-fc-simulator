@@ -125,11 +125,11 @@ class BuildFinder:
         # Base case: all nodes filled
         if node_index >= len(tree.all_nodes):
             # Tree is complete, check if it meets requirements
-            elements = tree.calculate_elements(self.game_data)
+            # Check if all desired arts are unlocked by any line
+            unlocked_arts = tree.calculate_unlocked_arts(self.game_data)
 
-            # Check if all required elements are met
-            if all(elements.get(elem, 0) >= value
-                   for elem, value in self.required_elements.items()):
+            # Build is valid if all desired arts are unlocked
+            if all(art in unlocked_arts for art in self.desired_arts):
                 # Valid build! Store a complete copy
                 # Store as list of (line_index, slot_index, quartz_name) tuples
                 build_copy = {
@@ -142,7 +142,6 @@ class BuildFinder:
                         }
                         for node in tree.all_nodes
                     ],
-                    'elements': elements.copy(),
                     'total_arts': 0  # Will be calculated after search
                 }
                 self.valid_builds.append(build_copy)
