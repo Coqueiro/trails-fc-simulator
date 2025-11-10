@@ -1,0 +1,3689 @@
+[
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Ruby Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 33,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "Hell Gate",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Sapphire Shield",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 32,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "Fire Bolt",
+      "Flare Arrow",
+      "Forte",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Petrification Blade",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Topaz Shield",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Mind 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "HP 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Break 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Mind 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "Heal",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  },
+  {
+    "placements": [
+      {
+        "line_index": -1,
+        "slot_index": 0,
+        "quartz": "EP 2",
+        "is_shared": true
+      },
+      {
+        "line_index": 0,
+        "slot_index": 1,
+        "quartz": "EP Cut 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 2,
+        "quartz": "Septium Vein",
+        "is_shared": false
+      },
+      {
+        "line_index": 0,
+        "slot_index": 3,
+        "quartz": "Defense 2",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 1,
+        "quartz": "Heal",
+        "is_shared": false
+      },
+      {
+        "line_index": 1,
+        "slot_index": 2,
+        "quartz": "HP 2",
+        "is_shared": false
+      }
+    ],
+    "total_arts": 29,
+    "unlocked_arts": [
+      "Aerial",
+      "Air Strike",
+      "Anti-Sept",
+      "Anti-Sept All",
+      "Aqua Bleed",
+      "Blue Impact",
+      "Chaos Brand",
+      "Clock Up",
+      "Clock Up EX",
+      "Crest",
+      "Curia",
+      "Earth Guard",
+      "Earth Lance",
+      "Earth Wall",
+      "La Curia",
+      "La Tear",
+      "La Teara",
+      "Lightning",
+      "Petrify Breath",
+      "Saint",
+      "Shadow Spear",
+      "Soul Blur",
+      "Stone Hammer",
+      "Stone Impact",
+      "Sylphen Guard",
+      "Tear",
+      "Teara",
+      "Thelas",
+      "Titanic Roar"
+    ]
+  }
+]
