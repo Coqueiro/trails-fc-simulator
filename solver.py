@@ -1,11 +1,201 @@
 """
-Load settings from user_settings.json
+Recursive tree-based solver for finding valid quartz builds.
 """
 import json
-from helpers import GameData
+from typing import Set, List, Dict
+from helpers import GameData, Character
+from tree_structure import OrbmentTree, SlotNode
 
 
-def main():
+class BuildFinder:
+    """Class to find valid quartz builds through recursive tree population."""
+
+    def __init__(self, character: Character, quartz_pool: Set[str],
+                 desired_arts: List[str], game_data: GameData):
+        self.character = character
+        self.quartz_pool = quartz_pool
+        self.desired_arts = desired_arts
+        self.game_data = game_data
+
+        # Calculate required elements
+        desired_art_objs = [game_data.arts_map[name]
+                            for name in desired_arts]
+        self.required_elements = game_data.element_calc.get_required_elements(
+            desired_art_objs)
+
+        # Filter to only relevant quartz
+        self.relevant_quartz = {
+            q_name for q_name in quartz_pool
+            if any(elem in game_data.quartz_map[q_name].elements
+                   for elem in self.required_elements.keys())
+        }
+
+        # Results storage
+        self.valid_builds = []
+
+    def _print_info(self):
+        """Print configuration information."""
+        print(f"\n{'='*50}")
+        print(f"BUILD FINDER INITIALIZED")
+        print(f"{'='*50}")
+        print(f"Available quartz: {len(self.quartz_pool)}")
+        print(f"Relevant quartz: {len(self.relevant_quartz)}")
+        print(f"Required elements: {self.required_elements}")
+
+    def _calculate_remaining_quartz(self, used_quartz: str, available: Set[str],
+                                    current_node: SlotNode, line_placements: Dict) -> Set[str]:
+        """
+        Calculate remaining quartz after placing one.
+
+        Args:
+            used_quartz: The quartz just placed
+            available: Currently available quartz set
+            current_node: The node where quartz was placed
+            line_placements: Dict tracking blade/shield placements per line {line_idx: {'blade': set(), 'shield': set()}}
+
+        Returns:
+            Set of quartz still available for next placement
+        """
+        # Start with available minus the used one
+        remaining = available - {used_quartz}
+
+        # Get the quartz object
+        quartz_obj = self.game_data.quartz_map[used_quartz]
+
+        # Remove all quartz from the same family
+        quartz_family = quartz_obj.family
+        remaining = {q for q in remaining
+                     if self.game_data.quartz_map[q].family != quartz_family}
+
+        # Handle blade/shield restrictions per line
+        # If node is shared (root), blade/shield don't count toward line restrictions
+        if not current_node.is_shared():
+            line_idx = current_node.line_index
+
+            # Track what types have been placed on this line
+            if line_idx not in line_placements:
+                line_placements[line_idx] = {
+                    'blade': set(), 'shield': set()}
+
+            quartz_type = quartz_obj.type
+
+            if quartz_type == 'Blade':
+                # Already placed a blade on this line, remove all blades
+                if line_placements[line_idx]['blade']:
+                    remaining = {q for q in remaining
+                                 if self.game_data.quartz_map[q].type != 'Blade'}
+                line_placements[line_idx]['blade'].add(used_quartz)
+
+            elif quartz_type == 'Shield':
+                # Already placed a shield on this line, remove all shields
+                if line_placements[line_idx]['shield']:
+                    remaining = {q for q in remaining
+                                 if self.game_data.quartz_map[q].type != 'Shield'}
+                line_placements[line_idx]['shield'].add(used_quartz)
+
+        return remaining
+
+    def _populate_tree_recursive(self, tree: OrbmentTree, node_index: int,
+                                 available_quartz: Set[str], line_placements: Dict) -> None:
+        """
+        Recursively populate the tree with quartz.
+
+        Args:
+            tree: The orbment tree to populate
+            node_index: Index of current node in tree.all_nodes
+            available_quartz: Set of quartz available for this placement
+            line_placements: Dict tracking blade/shield placements per line
+        """
+        # Base case: all nodes filled
+        if node_index >= len(tree.all_nodes):
+            # Tree is complete, check if it meets requirements
+            elements = tree.calculate_elements(self.game_data)
+
+            # Check if all required elements are met
+            if all(elements.get(elem, 0) >= value
+                   for elem, value in self.required_elements.items()):
+                # Valid build! Store a complete copy
+                # Store as list of (line_index, slot_index, quartz_name) tuples
+                build_copy = {
+                    'placements': [
+                        {
+                            'line_index': node.line_index,
+                            'slot_index': node.slot_index,
+                            'quartz': node.placed_quartz,
+                            'is_shared': node.is_shared()
+                        }
+                        for node in tree.all_nodes
+                    ],
+                    'elements': elements.copy(),
+                    'total_arts': 0  # Will be calculated later if needed
+                }
+                self.valid_builds.append(build_copy)
+                # print(f"  ✓ Found valid build #{len(self.valid_builds)}")
+            return
+
+        # Get current node
+        current_node = tree.all_nodes[node_index]
+
+        # Try placing each available quartz that respects restrictions
+        for quartz_name in available_quartz:
+            if current_node.can_place_quartz(quartz_name, self.game_data):
+                # Place the quartz
+                current_node.placed_quartz = quartz_name
+
+                # Calculate remaining quartz for next placement
+                # Make a copy of line_placements for this branch
+                line_placements_copy = {
+                    line: {'blade': types['blade'].copy(
+                    ), 'shield': types['shield'].copy()}
+                    for line, types in line_placements.items()
+                }
+
+                remaining = self._calculate_remaining_quartz(
+                    quartz_name, available_quartz, current_node, line_placements_copy)
+
+                # Recurse to next node
+                self._populate_tree_recursive(tree, node_index + 1,
+                                              remaining, line_placements_copy)
+
+                # Backtrack - clear this placement for next iteration
+                current_node.placed_quartz = None
+
+    def find_builds(self, verbose: bool = True) -> List[Dict]:
+        """
+        Find all valid builds using recursive tree population.
+
+        Args:
+            verbose: Whether to print progress information
+
+        Returns:
+            List of valid builds (each build is a dict with 'placements', 'elements', etc.)
+        """
+        if verbose:
+            print(f"\nStarting recursive search...")
+
+        # Create the tree structure for this character
+        tree = OrbmentTree(self.character)
+
+        if verbose:
+            print(f"Tree has {len(tree.all_nodes)} slots to fill")
+            print(
+                f"Searching with {len(self.relevant_quartz)} relevant quartz")
+
+        # Start recursive population from the first node
+        self._populate_tree_recursive(tree, 0, self.relevant_quartz, {})
+
+        if verbose:
+            print(f"\n{'='*50}")
+            print(
+                f"Search complete! Found {len(self.valid_builds)} valid builds")
+            print(f"{'='*50}")
+
+        return self.valid_builds
+
+
+if __name__ == "__main__":
+    # Example usage: Load settings and find builds
+
     # Load user settings
     with open('user_settings.json', 'r') as f:
         settings = json.load(f)
@@ -21,32 +211,10 @@ def main():
     # Get character
     character = game_data.get_character(character_name)
 
-    # Get desired art objects
-    desired_art_objs = [game_data.arts_map[name] for name in desired_arts]
-
-    # Calculate required elements
-    required_elements = game_data.element_calc.get_required_elements(
-        desired_art_objs)
-
-    # Example: Calculate elements from two quartz
-    example_quartz = {available_quartz[0], available_quartz[1]}
-    example_elements = game_data.element_calc.calculate_elements(
-        example_quartz)
-
-    # Filter relevant quartz (those with needed elements)
-    relevant_quartz = [
-        q_name for q_name in available_quartz
-        if any(elem in game_data.quartz_map[q_name].elements
-               for elem in required_elements.keys())
-    ]
-
     # Print loaded data
     print(f"Character: {character_name}")
     print(f"Available quartz: {len(available_quartz)}")
     print(f"Desired arts: {desired_arts}")
-    print(f"Required elements: {required_elements}")
-    print(f"Relevant quartz: {len(relevant_quartz)}")
-    print(f"\nExample: Elements from {example_quartz}: {example_elements}")
 
     # Create test quartz set with known relevant quartz + 3 others
     known_relevant = {"EP 2", "Septium Vein", "EP Cut 2",
@@ -57,43 +225,20 @@ def main():
 
     print(f"\nTest quartz set: {quartz_set}")
 
-    # Build finder class
-    class BuildFinder:
-        """Class to find valid quartz builds through exhaustive search."""
-
-        def __init__(self, character, quartz_pool, desired_arts, game_data):
-            self.character = character
-            self.quartz_pool = quartz_pool
-            self.desired_arts = desired_arts
-            self.game_data = game_data
-
-            desired_art_objs = [game_data.arts_map[name]
-                                for name in desired_arts]
-
-            required_elements = game_data.element_calc.get_required_elements(
-                desired_art_objs)
-
-            self.relevant_quartz = {
-                q_name for q_name in quartz_pool
-                if any(elem in game_data.quartz_map[q_name].elements
-                       for elem in required_elements.keys())
-            }
-
-            self._print_info()
-
-        def _print_info(self):
-            """Print configuration information."""
-            print(f"\n{'='*50}")
-            print(f"BUILD FINDER INITIALIZED")
-            print(f"{'='*50}")
-
-            print(f"Available quartz: {len(self.quartz_pool)}")
-            print(f"Relevant quartz: {len(self.relevant_quartz)}")
-            print(f"Required elements: {required_elements}")
-
-            # Create finder and search for builds
+    # Create finder and search for builds
     finder = BuildFinder(character, quartz_set, desired_arts, game_data)
+    finder._print_info()
+    builds = finder.find_builds()
 
-
-if __name__ == "__main__":
-    main()
+    # Display results
+    if builds:
+        print(f"\nShowing first build:")
+        first_build = builds[0]
+        print(f"Elements: {first_build['elements']}")
+        print(f"\nPlacements:")
+        for placement in first_build['placements']:
+            shared_marker = " (SHARED)" if placement['is_shared'] else ""
+            print(
+                f"  Line {placement['line_index']}, Slot {placement['slot_index']}{shared_marker}: {placement['quartz']}")
+    else:
+        print("\nNo valid builds found.")
