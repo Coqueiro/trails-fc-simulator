@@ -28,15 +28,10 @@
     "Topaz Shield",
     "Arts Defense 2"
   ],
-  "desired_quartz": [
-    "EP Cut 2",
-    "EP 2"
-  ],
   "selected_arts": [
     "La Teara",
     "Thelas",
-    "La Curia",
-    "Titanic Roar"
+    "La Curia"
   ],
   "max_builds": 50
 }

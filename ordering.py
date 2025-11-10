@@ -5,10 +5,7 @@ This module handles the ordering constraints that eliminate redundant permutatio
 in the search space while maintaining correctness.
 """
 
-from typing import Set, Dict, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from helpers import GameData
+from typing import Set, Dict
 
 
 class LexicographicOrdering:
@@ -19,21 +16,15 @@ class LexicographicOrdering:
     quartz are placed in sorted order. This eliminates permutations that
     would result in the same elemental values.
 
-    Quartz are sorted by:
-    1. Total element count (descending - more elements first)
-    2. Name (alphabetically as tiebreaker)
+    For example, if we have quartz [A, B, C], we only try:
+    - A, B, C (not B, A, C or C, B, A, etc.)
 
     This optimization is only applied to linear segments where the parent
     node is not shared/branching, preserving independence between branches.
     """
 
-    def __init__(self, game_data: 'GameData'):
-        """Initialize the ordering tracker.
-
-        Args:
-            game_data: GameData instance for quartz lookups
-        """
-        self.game_data = game_data
+    def __init__(self):
+        """Initialize the ordering tracker."""
         # Maps line_index -> last_used_quartz_index
         self.last_quartz_index_per_line: Dict[int, int] = {}
 
@@ -58,24 +49,13 @@ class LexicographicOrdering:
         """
         Sort available quartz for consistent ordering.
 
-        Sorting priority:
-        1. Total element count (descending - more elements first)
-        2. Quartz name (alphabetically as tiebreaker)
-
         Args:
             available_quartz: Set of quartz names available for placement
 
         Returns:
             Sorted list of quartz names
         """
-        def sort_key(quartz_name: str):
-            quartz = self.game_data.quartz_map[quartz_name]
-            # Count total elements (sum of all element values)
-            element_count = sum(quartz.elements.values())
-            # Return negative count for descending order, then name for ascending
-            return (-element_count, quartz_name)
-
-        return sorted(available_quartz, key=sort_key)
+        return sorted(available_quartz)
 
     def get_minimum_index(self, current_node) -> int:
         """
@@ -126,6 +106,6 @@ class LexicographicOrdering:
         Returns:
             New LexicographicOrdering instance with copied state
         """
-        new_ordering = LexicographicOrdering(self.game_data)
+        new_ordering = LexicographicOrdering()
         new_ordering.last_quartz_index_per_line = self.last_quartz_index_per_line.copy()
         return new_ordering

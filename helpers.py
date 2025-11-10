@@ -20,22 +20,10 @@ class Quartz:
     elements: Dict[str, int]
     effects: Optional[str] = None
     description: Optional[str] = None
-    quartz_element: Optional[str] = None  # Single element for restriction purposes
 
     def has_element(self, element: str) -> bool:
-        """Check if quartz provides a specific element (for art unlocking)"""
+        """Check if quartz provides a specific element"""
         return element in self.elements and self.elements[element] > 0
-    
-    def matches_restriction(self, restriction: str) -> bool:
-        """Check if quartz matches a slot restriction.
-        
-        Uses quartz_element if available, otherwise falls back to checking
-        if the quartz has the element in its elements dict.
-        """
-        if self.quartz_element is not None:
-            return self.quartz_element == restriction
-        # Fallback for quartz without quartz_element defined yet
-        return self.has_element(restriction)
 
 
 @dataclass

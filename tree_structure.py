@@ -67,7 +67,7 @@ class SlotNode:
             return True
 
         quartz = game_data.quartz_map[quartz_name]
-        return quartz.matches_restriction(self.restriction)
+        return quartz.has_element(self.restriction)
 
     def __repr__(self):
         shared = "SHARED" if self.is_shared() else "normal"

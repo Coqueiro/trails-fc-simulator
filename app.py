@@ -28,10 +28,6 @@ game_data = load_game_data()
 SETTINGS_DIR = Path("saved_settings")
 SETTINGS_DIR.mkdir(exist_ok=True)
 
-# Cache directory
-CACHE_DIR = Path(".cache")
-CACHE_DIR.mkdir(exist_ok=True)
-
 # Last session file
 LAST_SESSION_FILE = SETTINGS_DIR / ".last_session.json"
 
@@ -89,57 +85,6 @@ def delete_settings(filename: str):
         filepath.unlink()
 
 
-def get_cache_key(character: str, quartz: list, desired_quartz: list, arts: list, max_builds: int) -> str:
-    """Generate a cache key from search parameters."""
-    import hashlib
-    
-    # Create a deterministic string from parameters
-    cache_data = {
-        'character': character,
-        'quartz': sorted(quartz),
-        'desired_quartz': sorted(desired_quartz),
-        'arts': sorted(arts),
-        'max_builds': max_builds
-    }
-    
-    # Generate hash
-    cache_str = json.dumps(cache_data, sort_keys=True)
-    return hashlib.md5(cache_str.encode()).hexdigest()
-
-
-def load_cached_results(cache_key: str):
-    """Load cached results if available."""
-    cache_file = CACHE_DIR / f"{cache_key}.json"
-    if cache_file.exists():
-        try:
-            with open(cache_file, 'r') as f:
-                results = json.load(f)
-                # Convert unlocked_arts back to sets for consistency
-                for build in results:
-                    if 'unlocked_arts' in build and isinstance(build['unlocked_arts'], list):
-                        build['unlocked_arts'] = set(build['unlocked_arts'])
-                return results
-        except:
-            pass
-    return None
-
-
-def save_cached_results(cache_key: str, results: list):
-    """Save results to cache."""
-    cache_file = CACHE_DIR / f"{cache_key}.json"
-    
-    # Convert sets to lists for JSON serialization
-    serializable_results = []
-    for build in results:
-        build_copy = build.copy()
-        if 'unlocked_arts' in build_copy and isinstance(build_copy['unlocked_arts'], set):
-            build_copy['unlocked_arts'] = sorted(list(build_copy['unlocked_arts']))
-        serializable_results.append(build_copy)
-    
-    with open(cache_file, 'w') as f:
-        json.dump(serializable_results, f, indent=2)
-
-
 # Initialize session state
 if 'initialized' not in st.session_state:
     # Load last session if available
@@ -154,14 +99,12 @@ if 'initialized' not in st.session_state:
         if loaded:
             st.session_state.selected_character = loaded.get('character', 'Estelle')
             st.session_state.selected_quartz = loaded.get('selected_quartz', [])
-            st.session_state.desired_quartz = loaded.get('desired_quartz', [])
             st.session_state.selected_arts = loaded.get('selected_arts', [])
             st.session_state.max_builds = loaded.get('max_builds', 50)
         else:
             # File doesn't exist, use defaults
             st.session_state.selected_character = "Estelle"
             st.session_state.selected_quartz = []
-            st.session_state.desired_quartz = []
             st.session_state.selected_arts = []
             st.session_state.max_builds = 50
     else:
@@ -170,7 +113,6 @@ if 'initialized' not in st.session_state:
         st.session_state.auto_save = True
         st.session_state.selected_character = "Estelle"
         st.session_state.selected_quartz = []
-        st.session_state.desired_quartz = []
         st.session_state.selected_arts = []
         st.session_state.max_builds = 50
     
@@ -183,7 +125,6 @@ def auto_save_if_enabled():
         settings = {
             'character': st.session_state.selected_character,
             'selected_quartz': st.session_state.selected_quartz,
-            'desired_quartz': st.session_state.desired_quartz,
             'selected_arts': st.session_state.selected_arts,
             'max_builds': st.session_state.max_builds
         }
@@ -231,7 +172,6 @@ with st.sidebar:
                 st.session_state.settings_name = selected_file
                 st.session_state.selected_character = loaded.get('character', 'Estelle')
                 st.session_state.selected_quartz = loaded.get('selected_quartz', [])
-                st.session_state.desired_quartz = loaded.get('desired_quartz', [])
                 st.session_state.selected_arts = loaded.get('selected_arts', [])
                 st.session_state.max_builds = loaded.get('max_builds', 50)
                 
@@ -251,7 +191,6 @@ with st.sidebar:
             settings = {
                 'character': st.session_state.selected_character,
                 'selected_quartz': st.session_state.selected_quartz,
-                'desired_quartz': st.session_state.desired_quartz,
                 'selected_arts': st.session_state.selected_arts,
                 'max_builds': st.session_state.max_builds
             }
@@ -276,20 +215,7 @@ with st.sidebar:
     st.write(f"**File:** {st.session_state.settings_name}")
     st.write(f"**Character:** {st.session_state.selected_character}")
     st.write(f"**Quartz:** {len(st.session_state.selected_quartz)}")
-    st.write(f"**Required:** {len(st.session_state.desired_quartz)}")
     st.write(f"**Arts:** {len(st.session_state.selected_arts)}")
-    
-    st.divider()
-    
-    # Cache info
-    st.subheader("🗄️ Cache")
-    cache_files = list(CACHE_DIR.glob("*.json"))
-    st.write(f"**Cached results:** {len(cache_files)}")
-    if st.button("Clear Cache", use_container_width=True):
-        for cache_file in cache_files:
-            cache_file.unlink()
-        st.success("Cache cleared!")
-        st.rerun()
 
 
 # Main content
@@ -357,35 +283,6 @@ with tab1:
         
         st.caption(f"Selected: {len(st.session_state.selected_quartz)} quartz")
         
-        # Desired quartz (must have in builds)
-        st.markdown("**Required Quartz** (must be in every build)")
-        
-        col1, col2 = st.columns([4, 1])
-        with col1:
-            # Only show quartz that are in the available pool
-            available_for_desired = [q for q in st.session_state.selected_quartz]
-            desired_quartz = st.multiselect(
-                "Select required quartz",
-                options=sorted(available_for_desired),
-                default=[q for q in st.session_state.desired_quartz if q in available_for_desired],
-                label_visibility="collapsed",
-                key="desired_quartz_selector"
-            )
-            # Update session state and rerun if changed
-            if desired_quartz != st.session_state.desired_quartz:
-                st.session_state.desired_quartz = desired_quartz
-                auto_save_if_enabled()
-                st.rerun()
-        
-        with col2:
-            st.write("")  # Spacing
-            if st.button("Clear", key="clear_desired_quartz", use_container_width=True):
-                st.session_state.desired_quartz = []
-                auto_save_if_enabled()
-                st.rerun()
-        
-        st.caption(f"Required: {len(st.session_state.desired_quartz)} quartz")
-        
         # Arts selection
         st.markdown("**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
         
@@ -420,59 +317,36 @@ with tab1:
         elif not st.session_state.selected_quartz:
             st.error("Please select at least one quartz!")
         else:
-            # Get character (needed for both cache and search)
-            character = game_data.get_character(st.session_state.selected_character)
+            # Create placeholders for progress updates
+            progress_placeholder = st.empty()
+            spinner_placeholder = st.empty()
             
-            # Generate cache key
-            cache_key = get_cache_key(
-                st.session_state.selected_character,
-                st.session_state.selected_quartz,
-                st.session_state.desired_quartz,
-                st.session_state.selected_arts,
-                st.session_state.max_builds
-            )
-            
-            # Try to load from cache
-            cached_builds = load_cached_results(cache_key)
-            
-            if cached_builds is not None:
-                st.info("✅ Loaded results from cache!")
-                builds = cached_builds
-            else:
-                # Create placeholders for progress updates
-                progress_placeholder = st.empty()
-                spinner_placeholder = st.empty()
-                
-                with spinner_placeholder:
-                    with st.spinner("Searching for builds..."):
-                        quartz_set = set(st.session_state.selected_quartz)
-                        
-                        finder = BuildFinder(
-                            character,
-                            quartz_set,
-                            st.session_state.selected_arts,
-                            game_data,
-                            max_builds=st.session_state.max_builds,
-                            desired_quartz=set(st.session_state.desired_quartz)
+            with spinner_placeholder:
+                with st.spinner("Searching for builds..."):
+                    character = game_data.get_character(st.session_state.selected_character)
+                    quartz_set = set(st.session_state.selected_quartz)
+                    
+                    finder = BuildFinder(
+                        character,
+                        quartz_set,
+                        st.session_state.selected_arts,
+                        game_data,
+                        max_builds=st.session_state.max_builds
+                    )
+                    
+                    # Create a callback to update progress
+                    def progress_callback():
+                        progress_placeholder.info(
+                            f"🔍 {finder.combinations_checked:,} combinations checked, "
+                            f"{len(finder.valid_builds)} valid builds so far..."
                         )
-                        
-                        # Create a callback to update progress
-                        def progress_callback():
-                            progress_placeholder.info(
-                                f"🔍 {finder.combinations_checked:,} combinations checked, "
-                                f"{len(finder.valid_builds)} valid builds so far..."
-                            )
-                        
-                        finder.progress_callback = progress_callback
-                        builds = finder.find_builds(verbose=False)
-                
-                # Clear progress messages
-                progress_placeholder.empty()
-                spinner_placeholder.empty()
-                
-                # Save to cache
-                if builds:
-                    save_cached_results(cache_key, builds)
+                    
+                    finder.progress_callback = progress_callback
+                    builds = finder.find_builds(verbose=False)
+            
+            # Clear progress messages
+            progress_placeholder.empty()
+            spinner_placeholder.empty()
             
             if builds:
                 st.success(f"✅ Found {len(builds)} valid builds!")
@@ -524,12 +398,13 @@ with tab1:
                                 st.caption(" → ".join(quartz_list))
                         
                         with col2:
-                            with st.expander(f"✨ Unlocked Arts ({build['total_arts']})", expanded=True):
-                                # Show unlocked arts (all of them, but compact)
-                                unlocked = sorted(build['unlocked_arts'])
-                                for art in unlocked:
-                                    marker = "⭐" if art in st.session_state.selected_arts else "•"
-                                    st.caption(f"{marker} {art}")
+                            st.markdown(f"**✨ Unlocked Arts ({build['total_arts']})**")
+                            
+                            # Show unlocked arts (all of them, but compact)
+                            unlocked = sorted(build['unlocked_arts'])
+                            for art in unlocked:
+                                marker = "⭐" if art in st.session_state.selected_arts else "•"
+                                st.caption(f"{marker} {art}")
             else:
                 st.error("❌ No valid builds found with the selected quartz and arts.")
                 st.info("Try adding more quartz or adjusting your desired arts.")
