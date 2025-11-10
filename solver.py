@@ -41,6 +41,10 @@ class BuildFinder:
 
         # Results storage
         self.valid_builds = []
+        
+        # Progress tracking
+        self.combinations_checked = 0
+        self.progress_callback = None
 
     def _print_info(self):
         """Print configuration information."""
@@ -124,7 +128,10 @@ class BuildFinder:
 
         # Base case: all nodes filled
         if node_index >= len(tree.all_nodes):
-            # Tree is complete, check if it meets requirements
+            # Tree is complete, increment combinations checked
+            self.combinations_checked += 1
+            
+            # Check if it meets requirements
             # Check if all desired arts are unlocked by any line
             unlocked_arts = tree.calculate_unlocked_arts(self.game_data)
 
@@ -146,6 +153,10 @@ class BuildFinder:
                 }
                 self.valid_builds.append(build_copy)
                 # print(f"  ✓ Found valid build #{len(self.valid_builds)}")
+            
+            # Call progress callback if provided (after checking this combination)
+            if self.progress_callback and self.combinations_checked % 100 == 0:
+                self.progress_callback()
             return
 
         # Get current node

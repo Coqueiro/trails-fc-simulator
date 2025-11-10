@@ -315,88 +315,105 @@ with tab1:
         elif not st.session_state.selected_quartz:
             st.error("Please select at least one quartz!")
         else:
-            with st.spinner("Searching for builds..."):
-                character = game_data.get_character(st.session_state.selected_character)
-                quartz_set = set(st.session_state.selected_quartz)
-                
-                finder = BuildFinder(
-                    character,
-                    quartz_set,
-                    st.session_state.selected_arts,
-                    game_data,
-                    max_builds=st.session_state.max_builds
-                )
-                
-                builds = finder.find_builds(verbose=False)
-                
-                if builds:
-                    st.success(f"✅ Found {len(builds)} valid builds!")
+            # Create placeholders for progress updates
+            progress_placeholder = st.empty()
+            spinner_placeholder = st.empty()
+            
+            with spinner_placeholder:
+                with st.spinner("Searching for builds..."):
+                    character = game_data.get_character(st.session_state.selected_character)
+                    quartz_set = set(st.session_state.selected_quartz)
                     
-                    # Display builds
-                    for i, build in enumerate(builds):
-                        with st.expander(
-                            f"Build #{i+1} - {build['total_arts']} arts unlocked",
-                            expanded=(i == 0)
-                        ):
-                            col1, col2 = st.columns([2, 1])
+                    finder = BuildFinder(
+                        character,
+                        quartz_set,
+                        st.session_state.selected_arts,
+                        game_data,
+                        max_builds=st.session_state.max_builds
+                    )
+                    
+                    # Create a callback to update progress
+                    def progress_callback():
+                        progress_placeholder.info(
+                            f"🔍 {finder.combinations_checked:,} combinations checked, "
+                            f"{len(finder.valid_builds)} valid builds so far..."
+                        )
+                    
+                    finder.progress_callback = progress_callback
+                    builds = finder.find_builds(verbose=False)
+            
+            # Clear progress messages
+            progress_placeholder.empty()
+            spinner_placeholder.empty()
+            
+            if builds:
+                st.success(f"✅ Found {len(builds)} valid builds!")
+                
+                # Display builds
+                for i, build in enumerate(builds):
+                    with st.expander(
+                        f"Build #{i+1} - {build['total_arts']} arts unlocked",
+                        expanded=(i == 0)
+                    ):
+                        col1, col2 = st.columns([2, 1])
+                        
+                        with col1:
+                            st.subheader("Quartz Placement")
                             
-                            with col1:
-                                st.subheader("Quartz Placement")
-                                
-                                # Group by line
-                                by_line = {}
-                                for placement in build['placements']:
-                                    line_idx = placement['line_index']
-                                    if line_idx not in by_line:
-                                        by_line[line_idx] = []
-                                    by_line[line_idx].append(placement)
-                                
-                                for line_idx in sorted(by_line.keys()):
-                                    if line_idx == -1:
-                                        st.markdown("**Shared Slot:**")
-                                    else:
-                                        st.markdown(f"**Line {line_idx + 1}:**")
-                                    
-                                    for placement in by_line[line_idx]:
-                                        st.write(f"  • Slot {placement['slot_index']}: {placement['quartz']}")
+                            # Group by line
+                            by_line = {}
+                            for placement in build['placements']:
+                                line_idx = placement['line_index']
+                                if line_idx not in by_line:
+                                    by_line[line_idx] = []
+                                by_line[line_idx].append(placement)
                             
-                            with col2:
-                                st.subheader("Lines & Elements")
-                                # Reconstruct tree to show elements per line
-                                from tree_structure import OrbmentTree
-                                tree = OrbmentTree(character)
-                                for placement in build['placements']:
-                                    for node in tree.all_nodes:
-                                        if (node.line_index == placement['line_index'] and
-                                            node.slot_index == placement['slot_index']):
-                                            node.placed_quartz = placement['quartz']
-                                            break
+                            for line_idx in sorted(by_line.keys()):
+                                if line_idx == -1:
+                                    st.markdown("**Shared Slot:**")
+                                else:
+                                    st.markdown(f"**Line {line_idx + 1}:**")
                                 
-                                # Show elements for each line
-                                for path_idx, path in enumerate(tree.get_all_paths()):
-                                    line_elements = tree.calculate_elements_for_path(path, game_data)
-                                    if line_elements:
-                                        st.markdown(f"**Line {path_idx + 1}:**")
-                                        for elem, value in sorted(line_elements.items()):
-                                            st.caption(f"{elem}: {value}")
-                                        st.write("")  # spacing
-                                
-                                st.divider()
-                                
-                                st.subheader("Unlocked Arts")
-                                st.write(f"**Total:** {build['total_arts']}")
-                                
-                                # Show first 15 arts
-                                unlocked = sorted(build['unlocked_arts'])
-                                for art in unlocked[:15]:
-                                    marker = "⭐" if art in st.session_state.selected_arts else "•"
-                                    st.write(f"{marker} {art}")
-                                
-                                if len(unlocked) > 15:
-                                    st.write(f"*... and {len(unlocked) - 15} more*")
-                else:
-                    st.error("❌ No valid builds found with the selected quartz and arts.")
-                    st.info("Try adding more quartz or adjusting your desired arts.")
+                                for placement in by_line[line_idx]:
+                                    st.write(f"  • Slot {placement['slot_index']}: {placement['quartz']}")
+                        
+                        with col2:
+                            st.subheader("Lines & Elements")
+                            # Reconstruct tree to show elements per line
+                            from tree_structure import OrbmentTree
+                            tree = OrbmentTree(character)
+                            for placement in build['placements']:
+                                for node in tree.all_nodes:
+                                    if (node.line_index == placement['line_index'] and
+                                        node.slot_index == placement['slot_index']):
+                                        node.placed_quartz = placement['quartz']
+                                        break
+                            
+                            # Show elements for each line
+                            for path_idx, path in enumerate(tree.get_all_paths()):
+                                line_elements = tree.calculate_elements_for_path(path, game_data)
+                                if line_elements:
+                                    st.markdown(f"**Line {path_idx + 1}:**")
+                                    for elem, value in sorted(line_elements.items()):
+                                        st.caption(f"{elem}: {value}")
+                                    st.write("")  # spacing
+                            
+                            st.divider()
+                            
+                            st.subheader("Unlocked Arts")
+                            st.write(f"**Total:** {build['total_arts']}")
+                            
+                            # Show first 15 arts
+                            unlocked = sorted(build['unlocked_arts'])
+                            for art in unlocked[:15]:
+                                marker = "⭐" if art in st.session_state.selected_arts else "•"
+                                st.write(f"{marker} {art}")
+                            
+                            if len(unlocked) > 15:
+                                st.write(f"*... and {len(unlocked) - 15} more*")
+            else:
+                st.error("❌ No valid builds found with the selected quartz and arts.")
+                st.info("Try adding more quartz or adjusting your desired arts.")
 
 with tab2:
     st.header("About")
