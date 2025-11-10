@@ -261,13 +261,14 @@ with tab1:
                 "Select quartz",
                 options=sorted(game_data.quartz_map.keys()),
                 default=st.session_state.selected_quartz,
-                label_visibility="collapsed"
+                label_visibility="collapsed",
+                key="quartz_selector"
             )
-            # Update session state
-            old_quartz = st.session_state.selected_quartz
-            st.session_state.selected_quartz = selected_quartz
-            if selected_quartz != old_quartz:
+            # Update session state and rerun if changed
+            if selected_quartz != st.session_state.selected_quartz:
+                st.session_state.selected_quartz = selected_quartz
                 auto_save_if_enabled()
+                st.rerun()
         
         with col2:
             st.write("")  # Spacing
@@ -280,7 +281,7 @@ with tab1:
                 auto_save_if_enabled()
                 st.rerun()
         
-        st.caption(f"Selected: {len(selected_quartz)} quartz")
+        st.caption(f"Selected: {len(st.session_state.selected_quartz)} quartz")
         
         # Arts selection
         st.markdown("**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
@@ -291,13 +292,14 @@ with tab1:
                 "Select arts",
                 options=sorted(game_data.arts_map.keys()),
                 default=st.session_state.selected_arts,
-                label_visibility="collapsed"
+                label_visibility="collapsed",
+                key="arts_selector"
             )
-            # Update session state
-            old_arts = st.session_state.selected_arts
-            st.session_state.selected_arts = selected_arts
-            if selected_arts != old_arts:
+            # Update session state and rerun if changed
+            if selected_arts != st.session_state.selected_arts:
+                st.session_state.selected_arts = selected_arts
                 auto_save_if_enabled()
+                st.rerun()
         
         with col2:
             st.write("")  # Spacing
@@ -306,7 +308,7 @@ with tab1:
                 auto_save_if_enabled()
                 st.rerun()
         
-        st.caption(f"Selected: {len(selected_arts)} arts")
+        st.caption(f"Selected: {len(st.session_state.selected_arts)} arts")
     
     # Run solver button
     if st.button("🔍 Find Builds", type="primary", use_container_width=True):
@@ -355,10 +357,20 @@ with tab1:
                         f"Build #{i+1} - {build['total_arts']} arts unlocked",
                         expanded=(i == 0)
                     ):
-                        col1, col2 = st.columns([2, 1])
+                        # Reconstruct tree to calculate elements per line
+                        from tree_structure import OrbmentTree
+                        tree = OrbmentTree(character)
+                        for placement in build['placements']:
+                            for node in tree.all_nodes:
+                                if (node.line_index == placement['line_index'] and
+                                    node.slot_index == placement['slot_index']):
+                                    node.placed_quartz = placement['quartz']
+                                    break
+                        
+                        col1, col2 = st.columns([1, 1])
                         
                         with col1:
-                            st.subheader("Quartz Placement")
+                            st.markdown("**🔮 Quartz Setup**")
                             
                             # Group by line
                             by_line = {}
@@ -368,49 +380,31 @@ with tab1:
                                     by_line[line_idx] = []
                                 by_line[line_idx].append(placement)
                             
+                            # Get all paths for element calculation
+                            paths = tree.get_all_paths()
+                            
                             for line_idx in sorted(by_line.keys()):
                                 if line_idx == -1:
-                                    st.markdown("**Shared Slot:**")
+                                    st.markdown("**Shared:**")
                                 else:
-                                    st.markdown(f"**Line {line_idx + 1}:**")
+                                    # Calculate elements for this line
+                                    if line_idx < len(paths):
+                                        line_elements = tree.calculate_elements_for_path(paths[line_idx], game_data)
+                                        elem_str = ", ".join([f"{e}: {v}" for e, v in sorted(line_elements.items())]) if line_elements else "None"
+                                        st.markdown(f"**Line {line_idx + 1}:** `{elem_str}`")
                                 
-                                for placement in by_line[line_idx]:
-                                    st.write(f"  • Slot {placement['slot_index']}: {placement['quartz']}")
+                                # Show quartz in compact format
+                                quartz_list = [f"{p['quartz']}" for p in by_line[line_idx]]
+                                st.caption(" → ".join(quartz_list))
                         
                         with col2:
-                            st.subheader("Lines & Elements")
-                            # Reconstruct tree to show elements per line
-                            from tree_structure import OrbmentTree
-                            tree = OrbmentTree(character)
-                            for placement in build['placements']:
-                                for node in tree.all_nodes:
-                                    if (node.line_index == placement['line_index'] and
-                                        node.slot_index == placement['slot_index']):
-                                        node.placed_quartz = placement['quartz']
-                                        break
+                            st.markdown(f"**✨ Unlocked Arts ({build['total_arts']})**")
                             
-                            # Show elements for each line
-                            for path_idx, path in enumerate(tree.get_all_paths()):
-                                line_elements = tree.calculate_elements_for_path(path, game_data)
-                                if line_elements:
-                                    st.markdown(f"**Line {path_idx + 1}:**")
-                                    for elem, value in sorted(line_elements.items()):
-                                        st.caption(f"{elem}: {value}")
-                                    st.write("")  # spacing
-                            
-                            st.divider()
-                            
-                            st.subheader("Unlocked Arts")
-                            st.write(f"**Total:** {build['total_arts']}")
-                            
-                            # Show first 15 arts
+                            # Show unlocked arts (all of them, but compact)
                             unlocked = sorted(build['unlocked_arts'])
-                            for art in unlocked[:15]:
+                            for art in unlocked:
                                 marker = "⭐" if art in st.session_state.selected_arts else "•"
-                                st.write(f"{marker} {art}")
-                            
-                            if len(unlocked) > 15:
-                                st.write(f"*... and {len(unlocked) - 15} more*")
+                                st.caption(f"{marker} {art}")
             else:
                 st.error("❌ No valid builds found with the selected quartz and arts.")
                 st.info("Try adding more quartz or adjusting your desired arts.")

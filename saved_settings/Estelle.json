@@ -2,7 +2,6 @@
   "character": "Estelle",
   "selected_quartz": [
     "Action 2",
-    "Arts Defense 3",
     "Attack 2",
     "Blind Blade",
     "Break 2",
@@ -26,13 +25,13 @@
     "Silver Shield",
     "Sleep Blade",
     "Strike 2",
-    "Topaz Shield"
+    "Topaz Shield",
+    "Arts Defense 2"
   ],
   "selected_arts": [
     "La Teara",
     "Thelas",
-    "Diamond Dust",
-    "Clock Up EX"
+    "La Curia"
   ],
   "max_builds": 50
 }
