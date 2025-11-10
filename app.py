@@ -219,21 +219,94 @@ with st.sidebar:
 
 
 # Main content
-tab1, tab2, tab3 = st.tabs(["🎯 Build Finder", "📋 Configuration", "ℹ️ About"])
+tab1, tab2 = st.tabs(["🎯 Build Finder", "ℹ️ About"])
 
 with tab1:
     st.header("Build Finder")
     
-    # Quick stats
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Character", st.session_state.selected_character)
-    with col2:
-        st.metric("Selected Quartz", len(st.session_state.selected_quartz))
-    with col3:
-        st.metric("Desired Arts", len(st.session_state.selected_arts))
-    with col4:
-        st.metric("Max Builds", st.session_state.max_builds)
+    # Configuration section (compact)
+    with st.expander("⚙️ Configuration", expanded=True):
+        # Row 1: Character and Max Builds
+        col1, col2 = st.columns(2)
+        with col1:
+            characters = sorted([char.name for char in game_data.characters])
+            selected_char = st.selectbox(
+                "Character",
+                options=characters,
+                index=characters.index(st.session_state.selected_character)
+            )
+            if selected_char != st.session_state.selected_character:
+                st.session_state.selected_character = selected_char
+                auto_save_if_enabled()
+                st.rerun()
+        
+        with col2:
+            max_builds = st.slider(
+                "Max Builds",
+                min_value=10,
+                max_value=500,
+                value=st.session_state.max_builds,
+                step=10
+            )
+            if max_builds != st.session_state.max_builds:
+                st.session_state.max_builds = max_builds
+                auto_save_if_enabled()
+        
+        # Quartz selection
+        st.markdown("**Available Quartz** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/quartz-list)")
+        
+        col1, col2 = st.columns([4, 1])
+        with col1:
+            selected_quartz = st.multiselect(
+                "Select quartz",
+                options=sorted(game_data.quartz_map.keys()),
+                default=st.session_state.selected_quartz,
+                label_visibility="collapsed"
+            )
+            # Update session state
+            old_quartz = st.session_state.selected_quartz
+            st.session_state.selected_quartz = selected_quartz
+            if selected_quartz != old_quartz:
+                auto_save_if_enabled()
+        
+        with col2:
+            st.write("")  # Spacing
+            if st.button("All", key="select_all_quartz", use_container_width=True):
+                st.session_state.selected_quartz = sorted(list(game_data.quartz_map.keys()))
+                auto_save_if_enabled()
+                st.rerun()
+            if st.button("Clear", key="clear_quartz", use_container_width=True):
+                st.session_state.selected_quartz = []
+                auto_save_if_enabled()
+                st.rerun()
+        
+        st.caption(f"Selected: {len(selected_quartz)} quartz")
+        
+        # Arts selection
+        st.markdown("**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
+        
+        col1, col2 = st.columns([4, 1])
+        with col1:
+            selected_arts = st.multiselect(
+                "Select arts",
+                options=sorted(game_data.arts_map.keys()),
+                default=st.session_state.selected_arts,
+                label_visibility="collapsed"
+            )
+            # Update session state
+            old_arts = st.session_state.selected_arts
+            st.session_state.selected_arts = selected_arts
+            if selected_arts != old_arts:
+                auto_save_if_enabled()
+        
+        with col2:
+            st.write("")  # Spacing
+            if st.button("Clear", key="clear_arts", use_container_width=True):
+                st.session_state.selected_arts = []
+                auto_save_if_enabled()
+                st.rerun()
+        
+        st.caption(f"Selected: {len(selected_arts)} arts")
     
     # Run solver button
     if st.button("🔍 Find Builds", type="primary", use_container_width=True):
@@ -310,107 +383,6 @@ with tab1:
                     st.info("Try adding more quartz or adjusting your desired arts.")
 
 with tab2:
-    st.header("Configuration")
-    
-    # Character selection
-    st.subheader("1. Select Character")
-    characters = sorted([char.name for char in game_data.characters])
-    selected_char = st.selectbox(
-        "Character",
-        options=characters,
-        index=characters.index(st.session_state.selected_character)
-    )
-    if selected_char != st.session_state.selected_character:
-        st.session_state.selected_character = selected_char
-        auto_save_if_enabled()
-        st.rerun()
-    
-    # Max builds
-    st.subheader("2. Max Builds to Find")
-    max_builds = st.slider(
-        "Maximum number of builds",
-        min_value=10,
-        max_value=500,
-        value=st.session_state.max_builds,
-        step=10
-    )
-    if max_builds != st.session_state.max_builds:
-        st.session_state.max_builds = max_builds
-        auto_save_if_enabled()
-    
-    st.divider()
-    
-    # Quartz selection
-    st.subheader("3. Select Available Quartz")
-    st.markdown("📚 [Quartz Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/quartz-list)")
-    
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        if st.button("Select All Quartz"):
-            st.session_state.selected_quartz = sorted(list(game_data.quartz_map.keys()))
-            auto_save_if_enabled()
-            st.rerun()
-    with col2:
-        if st.button("Clear Quartz"):
-            st.session_state.selected_quartz = []
-            auto_save_if_enabled()
-            st.rerun()
-    
-    # Single multiselect for all quartz
-    all_quartz = sorted(game_data.quartz_map.keys())
-    
-    selected_quartz = st.multiselect(
-        "Select available quartz",
-        options=all_quartz,
-        default=st.session_state.selected_quartz,
-        help="Choose which quartz are available for builds"
-    )
-    
-    # Display counter after multiselect
-    st.write(f"**Selected: {len(selected_quartz)} quartz**")
-    
-    # Update session state immediately
-    old_quartz = st.session_state.selected_quartz
-    st.session_state.selected_quartz = selected_quartz
-    if selected_quartz != old_quartz:
-        auto_save_if_enabled()
-    
-    st.divider()
-    
-    # Arts selection
-    st.subheader("4. Select Desired Arts")
-    st.markdown("📚 [Arts Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
-    
-    if st.button("Clear Arts"):
-        st.session_state.selected_arts = []
-        auto_save_if_enabled()
-        st.rerun()
-    
-    # Search for arts
-    search_term = st.text_input("🔍 Search arts", "")
-    
-    # Filter and display arts
-    all_arts = sorted(game_data.arts_map.keys())
-    filtered_arts = [art for art in all_arts if search_term.lower() in art.lower()] if search_term else all_arts
-    
-    # Use multiselect for arts
-    selected_arts = st.multiselect(
-        "Select desired arts",
-        options=all_arts,
-        default=st.session_state.selected_arts,
-        help="Choose the arts you want to unlock"
-    )
-    
-    # Display counter after multiselect
-    st.write(f"**Selected: {len(selected_arts)} arts**")
-    
-    # Update session state immediately
-    old_arts = st.session_state.selected_arts
-    st.session_state.selected_arts = selected_arts
-    if selected_arts != old_arts:
-        auto_save_if_enabled()
-
-with tab3:
     st.header("About")
     st.markdown("""
     ## Trails in the Sky FC - Arts Simulator
