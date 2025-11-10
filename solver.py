@@ -19,10 +19,12 @@ class BuildFinder:
     """
 
     def __init__(self, character: Character, quartz_pool: Set[str],
-                 desired_arts: List[str], game_data: GameData, max_builds: int = 50):
+                 desired_arts: List[str], game_data: GameData, max_builds: int = 50,
+                 desired_quartz: Set[str] = None):
         self.character = character
         self.quartz_pool = quartz_pool
         self.desired_arts = desired_arts
+        self.desired_quartz = desired_quartz if desired_quartz is not None else set()
         self.game_data = game_data
         self.max_builds = max_builds
 
@@ -41,7 +43,7 @@ class BuildFinder:
 
         # Results storage
         self.valid_builds = []
-        
+
         # Progress tracking
         self.combinations_checked = 0
         self.progress_callback = None
@@ -94,18 +96,18 @@ class BuildFinder:
             quartz_type = quartz_obj.type
 
             if quartz_type == 'Blade':
-                # Already placed a blade on this line, remove all blades
-                if line_placements[line_idx]['blade']:
-                    remaining = {q for q in remaining
-                                 if self.game_data.quartz_map[q].type != 'Blade'}
+                # Add to tracking
                 line_placements[line_idx]['blade'].add(used_quartz)
+                # Now we have a blade on this line, remove all other blades
+                remaining = {q for q in remaining
+                             if self.game_data.quartz_map[q].type != 'Blade'}
 
             elif quartz_type == 'Shield':
-                # Already placed a shield on this line, remove all shields
-                if line_placements[line_idx]['shield']:
-                    remaining = {q for q in remaining
-                                 if self.game_data.quartz_map[q].type != 'Shield'}
+                # Add to tracking
                 line_placements[line_idx]['shield'].add(used_quartz)
+                # Now we have a shield on this line, remove all other shields
+                remaining = {q for q in remaining
+                             if self.game_data.quartz_map[q].type != 'Shield'}
 
         return remaining
 
@@ -130,13 +132,18 @@ class BuildFinder:
         if node_index >= len(tree.all_nodes):
             # Tree is complete, increment combinations checked
             self.combinations_checked += 1
-            
+
             # Check if it meets requirements
             # Check if all desired arts are unlocked by any line
             unlocked_arts = tree.calculate_unlocked_arts(self.game_data)
 
-            # Build is valid if all desired arts are unlocked
-            if all(art in unlocked_arts for art in self.desired_arts):
+            # Check if all desired quartz are in the build
+            build_quartz = {node.placed_quartz for node in tree.all_nodes
+                            if node.placed_quartz is not None}
+
+            # Build is valid if all desired arts are unlocked AND all desired quartz are present
+            if (all(art in unlocked_arts for art in self.desired_arts) and
+                    all(quartz in build_quartz for quartz in self.desired_quartz)):
                 # Valid build! Store a complete copy
                 # Store as list of (line_index, slot_index, quartz_name) tuples
                 build_copy = {
@@ -153,7 +160,7 @@ class BuildFinder:
                 }
                 self.valid_builds.append(build_copy)
                 # print(f"  ✓ Found valid build #{len(self.valid_builds)}")
-            
+
             # Call progress callback if provided (after checking this combination)
             if self.progress_callback and self.combinations_checked % 100 == 0:
                 self.progress_callback()
@@ -230,7 +237,7 @@ class BuildFinder:
         # Start recursive population from the first node
         # Initialize with fresh ordering tracker
         self._populate_tree_recursive(
-            tree, 0, self.relevant_quartz, {}, LexicographicOrdering())
+            tree, 0, self.relevant_quartz, {}, LexicographicOrdering(self.game_data))
 
         if verbose:
             print(f"\n{'='*50}")
