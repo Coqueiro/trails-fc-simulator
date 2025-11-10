@@ -205,20 +205,44 @@ class OrbmentTree:
 
     def calculate_elements(self, game_data: GameData) -> dict:
         """
-        Calculate total elemental values from all placed quartz in the tree.
+        Calculate maximum elemental values across all lines in the tree.
+
+        Since lines are independent (only shared nodes contribute to multiple lines),
+        we calculate elements for each line separately and return the maximum value
+        for each element across all lines.
 
         Args:
             game_data: Game data for element calculation
 
         Returns:
-            Dictionary mapping element names to total values (same format as helpers.calculate_elements)
+            Dictionary mapping element names to maximum values across all lines
         """
-        # Collect all placed quartz names
-        placed_quartz = {node.placed_quartz for node in self.all_nodes
-                         if node.placed_quartz is not None}
+        # Get all paths (lines)
+        paths = self.get_all_paths()
 
-        # Use the helper function to calculate elements
-        return game_data.element_calc.calculate_elements(placed_quartz)
+        if not paths:
+            return {}
+
+        # Calculate elements for each line
+        max_elements = {}
+
+        for path in paths:
+            # Get quartz in this line (includes shared nodes)
+            quartz_in_line = {node.placed_quartz for node in path
+                              if node.placed_quartz is not None}
+
+            if not quartz_in_line:
+                continue
+
+            # Calculate elements for this line
+            line_elements = game_data.element_calc.calculate_elements(
+                quartz_in_line)
+
+            # Update maximum values
+            for elem, value in line_elements.items():
+                max_elements[elem] = max(max_elements.get(elem, 0), value)
+
+        return max_elements
 
     def calculate_unlocked_arts(self, game_data: GameData) -> Set[str]:
         """
