@@ -2,7 +2,7 @@
 
 A build finder tool for *The Legend of Heroes: Trails in the Sky First Chapter*, the remake.
 
-Building an optimal setup in Trails in the Sky FC can be challenging due to many variables, like which quartz you have available and the restrictions on each character’s orbment lines. This tool helps you easily find the best quartz combinations to unlock your chosen arts. You can also prioritize quartz you want to use and maximize the range of arts your character can access.
+Building an optimal setup in Trails in the Sky FC can be challenging due to many variables, like which quartzes you have available and the restrictions on each character’s orbment lines, especially during mid-chapters, when the availability of quartzes is greater, but you still don't have the best ones. This tool helps you easily find the best quartz combinations to unlock your chosen arts. You can also prioritize quartzes you want to use and maximize the range of arts your character can access.
 
 ## Quick Start
 
@@ -83,7 +83,7 @@ Each build shows:
 
 The simulator automatically enforces all Trails FC orbment rules:
 
-1. **Family Restriction**: No two quartz of the same family on the same orbment
+1. **Family Restriction**: No two quartzes of the same family on the same orbment
 2. **Blade Limit**: Maximum one Blade-type quartz per line (shared slot exempt)
 3. **Shield Limit**: Maximum one Shield-type quartz per line (shared slot exempt)
 4. **Slot Restrictions**: Some slots only accept quartz of a specific element
@@ -129,4 +129,4 @@ For technical documentation, algorithm details, or to contribute, see `Developer
 
 ---
 
-**Note**: This is a fan-made tool. All game content and terminology are property of Nihon Falcom.
+**Note**: This is a fan-made tool. All game content and terminology are the property of Nihon Falcom.
