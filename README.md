@@ -1,6 +1,8 @@
 # Trails in the Sky FC - Arts Simulator
 
-A powerful build finder tool for *The Legend of Heroes: Trails in the Sky First Chapter* that helps you discover optimal quartz setups to unlock your desired arts.
+A build finder tool for *The Legend of Heroes: Trails in the Sky First Chapter*, the remake.
+
+With so many variables (available quartz, line restrictions) sometimes it can be hard to achieve a satisfying build in an optimal way. This tool helps you discover optimal quartz setups to unlock your desired arts. It also lets you prioritize certain quartz you want to include in your build and also increase the general coverage of arts for your character.
 
 ## Quick Start
 
