@@ -2,7 +2,7 @@
 
 A build finder tool for *The Legend of Heroes: Trails in the Sky First Chapter*, the remake.
 
-With so many variables (available quartz, line restrictions) sometimes it can be hard to achieve a satisfying build in an optimal way. This tool helps you discover optimal quartz setups to unlock your desired arts. It also lets you prioritize certain quartz you want to include in your build and also increase the general coverage of arts for your character.
+Building an optimal setup in Trails in the Sky FC can be challenging due to many variables, like which quartz you have available and the restrictions on each character’s orbment lines. This tool helps you easily find the best quartz combinations to unlock your chosen arts. You can also prioritize quartz you want to use and maximize the range of arts your character can access.
 
 ## Quick Start
 
