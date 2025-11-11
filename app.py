@@ -571,7 +571,7 @@ with tab1:
                             <style>
                             .art-tooltip {
                                 position: relative;
-                                display: inline-block;
+                                display: block;
                                 cursor: help;
                             }
                             .art-tooltip .tooltiptext {
