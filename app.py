@@ -4,6 +4,7 @@ Streamlit Web UI for Trails FC Arts Simulator
 import streamlit as st
 import json
 import os
+import html
 from pathlib import Path
 from datetime import datetime
 from solver import BuildFinder
@@ -543,11 +544,80 @@ with tab1:
                         with col2:
                             st.markdown(f"**✨ Unlocked Arts ({build['total_arts']})**")
                             
-                            # Show unlocked arts (all of them, but compact)
-                            unlocked = sorted(build['unlocked_arts'])
-                            for art in unlocked:
-                                marker = "⭐" if art in st.session_state.selected_arts else "•"
-                                st.caption(f"{marker} {art}")
+                            # Define element colors
+                            element_colors = {
+                                "Earth": "#8B4513",    # Brown
+                                "Water": "#1E90FF",    # Blue
+                                "Fire": "#FF4500",     # Red-Orange
+                                "Wind": "#32CD32",     # Green
+                                "Time": "#9370DB",     # Purple
+                                "Space": "#FFD700",    # Gold
+                                "Mirage": "#FF1493"    # Pink
+                            }
+                            
+                            # Group arts by element and sort
+                            arts_by_element = {}
+                            for art_name in sorted(build['unlocked_arts']):
+                                art_data = game_data.arts_map.get(art_name)
+                                if art_data:
+                                    element = art_data.element
+                                    if element not in arts_by_element:
+                                        arts_by_element[element] = []
+                                    arts_by_element[element].append(art_data)
+                            
+                            # Display arts with colors and custom CSS tooltips
+                            # First, inject the CSS styles
+                            st.markdown("""
+                            <style>
+                            .art-tooltip {
+                                position: relative;
+                                display: inline-block;
+                                cursor: help;
+                            }
+                            .art-tooltip .tooltiptext {
+                                visibility: hidden;
+                                width: 300px;
+                                background-color: #555;
+                                color: #fff;
+                                text-align: left;
+                                border-radius: 6px;
+                                padding: 8px;
+                                position: absolute;
+                                z-index: 1000;
+                                bottom: 125%;
+                                left: 50%;
+                                margin-left: -150px;
+                                opacity: 0;
+                                transition: opacity 0.3s;
+                                font-size: 0.85em;
+                                line-height: 1.4;
+                                white-space: pre-wrap;
+                            }
+                            .art-tooltip:hover .tooltiptext {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                            </style>
+                            """, unsafe_allow_html=True)
+                            
+                            # Build the HTML content separately
+                            html_output = '<div style="line-height: 1.6;">'
+                            for element in ["Earth", "Water", "Fire", "Wind", "Time", "Space", "Mirage"]:
+                                if element in arts_by_element:
+                                    for art_data in arts_by_element[element]:
+                                        marker = "⭐" if art_data.name in st.session_state.selected_arts else "•"
+                                        color = element_colors.get(element, "#888888")
+                                        
+                                        # Create tooltip content
+                                        tooltip_content = f"{art_data.effect} | {art_data.range}\n{art_data.description}"
+                                        
+                                        # Add art with tooltip - NO line breaks in the HTML
+                                        html_output += f'<div class="art-tooltip" style="color: {color}; font-size: 0.9em;">{marker} {art_data.name}<span class="tooltiptext">{tooltip_content}</span></div>'
+                            
+                            html_output += '</div>'
+                            
+                            # Render the HTML
+                            st.markdown(html_output, unsafe_allow_html=True)
             else:
                 st.error("❌ No valid builds found with the selected quartz and arts.")
                 st.info("Try adding more quartz or adjusting your desired arts.")
