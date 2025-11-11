@@ -15,7 +15,7 @@ A powerful build finder tool for *The Legend of Heroes: Trails in the Sky First 
 2. Install dependencies:
 
 ```bash
-pip install streamlit
+pip install -r requirements.txt
 ```
 
 ### Running the App
