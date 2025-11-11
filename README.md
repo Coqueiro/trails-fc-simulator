@@ -4,6 +4,8 @@ A build finder tool for *The Legend of Heroes: Trails in the Sky First Chapter*,
 
 Building an optimal setup in Trails in the Sky FC can be challenging due to many variables, like which quartzes you have available and the restrictions on each character’s orbment lines, especially during mid-chapters, when the availability of quartzes is greater, but you still don't have the best ones. This tool helps you easily find the best quartz combinations to unlock your chosen arts. You can also prioritize quartzes you want to use and maximize the range of arts your character can access.
 
+The tool is still in development, and some characters are still missing, mainly because I couldn't find their ornament restrictions online. I haven't finished the game yet, but I already find the tool useful.
+
 ## Quick Start
 
 ### Requirements
