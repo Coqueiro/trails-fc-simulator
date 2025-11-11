@@ -516,6 +516,52 @@ with tab1:
                         with col1:
                             st.markdown("**🔮 Quartz Setup**")
                             
+                            # Inject CSS for quartz tooltips (reuse art-tooltip class)
+                            st.markdown("""
+                            <style>
+                            .quartz-tooltip {
+                                position: relative;
+                                display: inline-block;
+                                cursor: help;
+                                margin: 0 4px;
+                            }
+                            .quartz-tooltip .tooltiptext-quartz {
+                                visibility: hidden;
+                                width: 250px;
+                                background-color: #555;
+                                color: #fff;
+                                text-align: left;
+                                border-radius: 6px;
+                                padding: 8px;
+                                position: absolute;
+                                z-index: 1000;
+                                bottom: 125%;
+                                left: 50%;
+                                margin-left: -125px;
+                                opacity: 0;
+                                transition: opacity 0.3s;
+                                font-size: 0.85em;
+                                line-height: 1.4;
+                                white-space: pre-wrap;
+                            }
+                            .quartz-tooltip:hover .tooltiptext-quartz {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                            </style>
+                            """, unsafe_allow_html=True)
+                            
+                            # Define element colors (same as arts)
+                            element_colors = {
+                                "Earth": "#8B4513",    # Brown
+                                "Water": "#1E90FF",    # Blue
+                                "Fire": "#FF4500",     # Red-Orange
+                                "Wind": "#32CD32",     # Green
+                                "Time": "#9370DB",     # Purple
+                                "Space": "#FFD700",    # Gold
+                                "Mirage": "#FF1493"    # Pink
+                            }
+                            
                             # Group by line
                             by_line = {}
                             for placement in build['placements']:
@@ -537,9 +583,31 @@ with tab1:
                                         elem_str = ", ".join([f"{e}: {v}" for e, v in sorted(line_elements.items())]) if line_elements else "None"
                                         st.markdown(f"**Line {line_idx + 1}:** `{elem_str}`")
                                 
-                                # Show quartz in compact format
-                                quartz_list = [f"{p['quartz']}" for p in by_line[line_idx]]
-                                st.caption(" → ".join(quartz_list))
+                                # Show quartz with colors and tooltips
+                                quartz_html = ""
+                                for idx, placement in enumerate(by_line[line_idx]):
+                                    quartz_name = placement['quartz']
+                                    quartz_data = game_data.quartz_map.get(quartz_name)
+                                    
+                                    if quartz_data:
+                                        # Get color based on quartz_element
+                                        color = element_colors.get(quartz_data.quartz_element, "#888888")
+                                        
+                                        # Create tooltip with description
+                                        tooltip = quartz_data.description if quartz_data.description else "No description"
+                                        
+                                        # Add arrow between quartz
+                                        if idx > 0:
+                                            quartz_html += '<span style="color: #888; margin: 0 4px;">→</span>'
+                                        
+                                        # Add quartz with tooltip
+                                        quartz_html += f'<span class="quartz-tooltip" style="color: {color}; font-size: 0.9em;">{quartz_name}<span class="tooltiptext-quartz">{tooltip}</span></span>'
+                                    else:
+                                        if idx > 0:
+                                            quartz_html += ' → '
+                                        quartz_html += quartz_name
+                                
+                                st.markdown(quartz_html, unsafe_allow_html=True)
                         
                         with col2:
                             st.markdown(f"**✨ Unlocked Arts ({build['total_arts']})**")
