@@ -29,7 +29,7 @@ def load_game_data():
 game_data = load_game_data()
 
 # Settings directory
-SETTINGS_DIR = Path("saved_settings")
+SETTINGS_DIR = Path(".saved_settings")
 SETTINGS_DIR.mkdir(exist_ok=True)
 
 # Cache directory

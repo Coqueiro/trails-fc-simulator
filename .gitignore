@@ -41,6 +41,7 @@ Thumbs.db
 
 # Cache
 .cache/
+.saved_settings/
 
 # Debug saves (can be shared for troubleshooting)
 debug_saves/
