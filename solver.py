@@ -2,10 +2,53 @@
 Recursive tree-based solver for finding valid quartz builds.
 """
 import json
-from typing import Set, List, Dict
+import multiprocessing
+from typing import Set, List, Dict, Tuple
 from helpers import GameData, Character
 from tree_structure import OrbmentTree, SlotNode
 from ordering import LexicographicOrdering
+
+
+# Global worker function for multiprocessing (must be at module level for pickling)
+def _worker_search_subtree(args: Tuple) -> List[Dict]:
+    """
+    Worker function for parallel processing.
+    Explores a subtree starting with a specific first quartz.
+    
+    Args:
+        args: Tuple of (first_quartz_name, first_quartz_idx, character, 
+               quartz_pool, desired_arts, game_data, max_builds, prioritized_quartz)
+    
+    Returns:
+        List of valid builds found in this subtree
+    """
+    (first_quartz, first_idx, character, quartz_pool, desired_arts, 
+     game_data, max_builds_per_worker, prioritized_quartz) = args
+    
+    # Create a BuildFinder instance for this worker
+    finder = BuildFinder(character, quartz_pool, desired_arts, game_data, 
+                        max_builds_per_worker, prioritized_quartz)
+    
+    # Create tree
+    tree = OrbmentTree(character)
+    first_node = tree.all_nodes[0]
+    
+    # Place the first quartz
+    first_node.placed_quartz = first_quartz
+    
+    # Calculate remaining quartz after first placement
+    line_placements = {}
+    remaining = finder._calculate_remaining_quartz(
+        first_quartz, quartz_pool, first_node, line_placements)
+    
+    # Create ordering and update for first placement
+    ordering = LexicographicOrdering(prioritized_quartz)
+    ordering.update_last_index(first_node, first_idx)
+    
+    # Recursively explore the rest of the tree
+    finder._populate_tree_recursive(tree, 1, remaining, line_placements, ordering)
+    
+    return finder.valid_builds
 
 
 class BuildFinder:
@@ -261,6 +304,124 @@ class BuildFinder:
             print(
                 f"Best build unlocks {self.valid_builds[0]['total_arts']} arts")
 
+        return self.valid_builds
+
+    def find_builds_parallel(self, verbose: bool = True, num_workers: int = None) -> List[Dict]:
+        """
+        Find all valid builds using parallel processing across multiple CPU cores.
+        
+        Splits the search space by first quartz placement - each worker explores
+        all builds starting with a different first quartz.
+        
+        Args:
+            verbose: Whether to print progress information
+            num_workers: Number of parallel workers (defaults to CPU count - 1)
+        
+        Returns:
+            List of valid builds sorted by total arts (descending)
+        """
+        # Determine number of workers
+        if num_workers is None:
+            num_workers = max(1, multiprocessing.cpu_count() - 1)
+        
+        if verbose:
+            print(f"\n{'='*50}")
+            print(f"PARALLEL BUILD FINDER")
+            print(f"{'='*50}")
+            print(f"Using {num_workers} CPU cores")
+            print(f"Max builds to find: {self.max_builds}")
+        
+        # Create the tree structure to analyze first node
+        tree = OrbmentTree(self.character)
+        first_node = tree.all_nodes[0]
+        
+        if verbose:
+            print(f"Tree has {len(tree.all_nodes)} slots to fill")
+            print(f"Searching with {len(self.relevant_quartz)} relevant quartz")
+        
+        # Get sorted quartz and find valid first choices
+        ordering = LexicographicOrdering(self.prioritized_quartz)
+        sorted_quartz = ordering.get_sorted_available_quartz(self.relevant_quartz)
+        
+        # Build list of valid first placements
+        valid_first_choices = []
+        for idx, quartz_name in enumerate(sorted_quartz):
+            if first_node.can_place_quartz(quartz_name, self.game_data):
+                valid_first_choices.append((quartz_name, idx))
+        
+        if verbose:
+            print(f"Found {len(valid_first_choices)} valid first quartz choices")
+            print(f"Splitting work across {num_workers} workers...\n")
+        
+        # If very few choices, fall back to single-threaded
+        if len(valid_first_choices) < 2:
+            if verbose:
+                print("Too few branches for parallel processing, using single-threaded mode.")
+            return self.find_builds(verbose=verbose)
+        
+        # Calculate max builds per worker
+        # Give each worker a fair share, with some extra to ensure we hit max_builds
+        max_builds_per_worker = self.max_builds * 2 // len(valid_first_choices) + 10
+        
+        # Prepare worker arguments
+        worker_args = [
+            (quartz_name, idx, self.character, self.quartz_pool, 
+             self.desired_arts, self.game_data, max_builds_per_worker, 
+             self.prioritized_quartz)
+            for quartz_name, idx in valid_first_choices
+        ]
+        
+        # Run parallel search
+        try:
+            with multiprocessing.Pool(num_workers) as pool:
+                results = pool.map(_worker_search_subtree, worker_args)
+        except Exception as e:
+            if verbose:
+                print(f"Parallel processing failed: {e}")
+                print("Falling back to single-threaded mode.")
+            return self.find_builds(verbose=verbose)
+        
+        # Combine results from all workers
+        for worker_builds in results:
+            self.valid_builds.extend(worker_builds)
+            # Early exit if we have enough builds
+            if len(self.valid_builds) >= self.max_builds:
+                break
+        
+        # Trim to max_builds
+        if len(self.valid_builds) > self.max_builds:
+            self.valid_builds = self.valid_builds[:self.max_builds]
+        
+        if verbose:
+            print(f"\n{'='*50}")
+            print(f"Parallel search complete! Found {len(self.valid_builds)} valid builds")
+            print("Calculating unlocked arts for each build...")
+            print(f"{'='*50}")
+        
+        # Calculate total arts for each build (reuse tree instance)
+        tree.reset()
+        for build in self.valid_builds:
+            # Reconstruct the tree with this build's placements
+            tree.reset()
+            for placement in build['placements']:
+                # Find the node and place the quartz
+                for node in tree.all_nodes:
+                    if (node.line_index == placement['line_index'] and
+                            node.slot_index == placement['slot_index']):
+                        node.placed_quartz = placement['quartz']
+                        break
+            
+            # Calculate unlocked arts
+            unlocked_arts = tree.calculate_unlocked_arts(self.game_data)
+            build['total_arts'] = len(unlocked_arts)
+            build['unlocked_arts'] = unlocked_arts
+        
+        # Sort by total arts (descending) - builds with more arts first
+        self.valid_builds.sort(key=lambda b: b['total_arts'], reverse=True)
+        
+        if verbose and self.valid_builds:
+            print(f"Best build unlocks {self.valid_builds[0]['total_arts']} arts")
+        
         return self.valid_builds
 
 

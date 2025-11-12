@@ -65,6 +65,7 @@ Each build shows:
 - Recursive tree-based solver with lexicographic ordering optimization
 - Respects all game constraints (families, blade/shield limits, slot restrictions)
 - Finds builds efficiently even with large quartz pools
+- **⚡ Parallel processing (Experimental)**: Leverages multiple CPU cores for 2-8x faster results
 
 ### 💾 Save & Load
 - Save multiple configurations for different characters and strategies
@@ -97,7 +98,8 @@ The simulator automatically enforces all Trails FC orbment rules:
 2. **Prioritize Wisely**: Use prioritized quartz to favor specific setups without over-constraining the search
 3. **Check Total Arts**: Builds are sorted by total arts unlocked - sometimes a build unlocks bonus arts you didn't request!
 4. **Use Cache**: The cache speeds up repeated searches with the same parameters
-5. **Experiment**: Try different desired arts combinations to discover unexpected synergies
+5. **Enable Parallel Processing**: For large searches (many quartz/arts), enable parallel processing in settings for significant speedup
+6. **Experiment**: Try different desired arts combinations to discover unexpected synergies
 
 ## Troubleshooting
 

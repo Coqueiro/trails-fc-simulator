@@ -5,11 +5,17 @@ import streamlit as st
 import json
 import os
 import html
+import multiprocessing
 from pathlib import Path
 from datetime import datetime
 from solver import BuildFinder
 from helpers import GameData
 
+# Set multiprocessing start method for compatibility (especially macOS)
+try:
+    multiprocessing.set_start_method('spawn', force=True)
+except RuntimeError:
+    pass  # Already set
 
 # Page configuration
 st.set_page_config(
@@ -186,6 +192,7 @@ if 'initialized' not in st.session_state:
                 'prioritized_quartz', [])
             st.session_state.selected_arts = loaded.get('selected_arts', [])
             st.session_state.max_builds = loaded.get('max_builds', 50)
+            st.session_state.use_parallel = loaded.get('use_parallel', False)
         else:
             # File doesn't exist, use defaults
             st.session_state.selected_character = "Estelle"
@@ -193,6 +200,7 @@ if 'initialized' not in st.session_state:
             st.session_state.prioritized_quartz = []
             st.session_state.selected_arts = []
             st.session_state.max_builds = 50
+            st.session_state.use_parallel = False
     else:
         # No last session, use defaults
         st.session_state.settings_name = "default"
@@ -202,6 +210,7 @@ if 'initialized' not in st.session_state:
         st.session_state.prioritized_quartz = []
         st.session_state.selected_arts = []
         st.session_state.max_builds = 50
+        st.session_state.use_parallel = False
 
     st.session_state.initialized = True
 
@@ -214,7 +223,8 @@ def auto_save_if_enabled():
             'selected_quartz': st.session_state.selected_quartz,
             'prioritized_quartz': st.session_state.prioritized_quartz,
             'selected_arts': st.session_state.selected_arts,
-            'max_builds': st.session_state.max_builds
+            'max_builds': st.session_state.max_builds,
+            'use_parallel': st.session_state.use_parallel
         }
         save_settings(st.session_state.settings_name, settings)
 
@@ -268,6 +278,7 @@ with st.sidebar:
                 st.session_state.selected_arts = loaded.get(
                     'selected_arts', [])
                 st.session_state.max_builds = loaded.get('max_builds', 50)
+                st.session_state.use_parallel = loaded.get('use_parallel', False)
 
                 # Save this as the last session
                 save_last_session(st.session_state.settings_name,
@@ -289,7 +300,8 @@ with st.sidebar:
                 'selected_quartz': st.session_state.selected_quartz,
                 'prioritized_quartz': st.session_state.prioritized_quartz,
                 'selected_arts': st.session_state.selected_arts,
-                'max_builds': st.session_state.max_builds
+                'max_builds': st.session_state.max_builds,
+                'use_parallel': st.session_state.use_parallel
             }
             save_settings(new_name, settings)
             save_last_session(st.session_state.settings_name,
@@ -363,6 +375,16 @@ with tab1:
             if max_builds != st.session_state.max_builds:
                 st.session_state.max_builds = max_builds
                 auto_save_if_enabled()
+        
+        # Parallel processing option
+        use_parallel = st.checkbox(
+            "⚡ Use parallel processing (faster on multi-core systems) - Experimental",
+            value=st.session_state.use_parallel,
+            help="⚠️ Experimental feature. Splits the search across multiple CPU cores for faster results. Recommended for large searches. May have stability issues on some systems."
+        )
+        if use_parallel != st.session_state.use_parallel:
+            st.session_state.use_parallel = use_parallel
+            auto_save_if_enabled()
 
         # Quartz selection
         st.markdown(
@@ -374,8 +396,7 @@ with tab1:
                 "Select quartz",
                 options=sorted(game_data.quartz_map.keys()),
                 default=st.session_state.selected_quartz,
-                label_visibility="collapsed",
-                key="quartz_selector"
+                label_visibility="collapsed"
             )
             # Update session state and rerun if changed
             if selected_quartz != st.session_state.selected_quartz:
@@ -414,8 +435,7 @@ with tab1:
                     "Select prioritized quartz",
                     options=sorted(st.session_state.selected_quartz),
                     default=st.session_state.prioritized_quartz,
-                    label_visibility="collapsed",
-                    key="prioritized_quartz_selector"
+                    label_visibility="collapsed"
                 )
                 # Update session state and rerun if changed
                 if prioritized_quartz != st.session_state.prioritized_quartz:
@@ -443,8 +463,7 @@ with tab1:
                 "Select arts",
                 options=sorted(game_data.arts_map.keys()),
                 default=st.session_state.selected_arts,
-                label_visibility="collapsed",
-                key="arts_selector"
+                label_visibility="collapsed"
             )
             # Update session state and rerun if changed
             if selected_arts != st.session_state.selected_arts:
@@ -511,7 +530,12 @@ with tab1:
                             )
 
                         finder.progress_callback = progress_callback
-                        builds = finder.find_builds(verbose=False)
+                        
+                        # Use parallel or single-threaded based on user preference
+                        if st.session_state.use_parallel:
+                            builds = finder.find_builds_parallel(verbose=False)
+                        else:
+                            builds = finder.find_builds(verbose=False)
 
                 # Clear progress messages
                 progress_placeholder.empty()
