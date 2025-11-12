@@ -17,17 +17,18 @@ def _worker_search_subtree(args: Tuple) -> List[Dict]:
     
     Args:
         args: Tuple of (first_quartz_name, first_quartz_idx, character, 
-               quartz_pool, desired_arts, game_data, max_builds, prioritized_quartz)
+               quartz_pool, desired_arts, game_data, max_builds, prioritized_quartz, 
+               filter_without_all_prioritized)
     
     Returns:
         List of valid builds found in this subtree
     """
     (first_quartz, first_idx, character, quartz_pool, desired_arts, 
-     game_data, max_builds_per_worker, prioritized_quartz) = args
+     game_data, max_builds_per_worker, prioritized_quartz, filter_without_all_prioritized) = args
     
     # Create a BuildFinder instance for this worker
     finder = BuildFinder(character, quartz_pool, desired_arts, game_data, 
-                        max_builds_per_worker, prioritized_quartz)
+                        max_builds_per_worker, prioritized_quartz, filter_without_all_prioritized)
     
     # Create tree
     tree = OrbmentTree(character)
@@ -63,13 +64,14 @@ class BuildFinder:
 
     def __init__(self, character: Character, quartz_pool: Set[str],
                  desired_arts: List[str], game_data: GameData, max_builds: int = 50,
-                 prioritized_quartz: Set[str] = None):
+                 prioritized_quartz: Set[str] = None, filter_without_all_prioritized: bool = False):
         self.character = character
         self.quartz_pool = quartz_pool
         self.desired_arts = desired_arts
         self.game_data = game_data
         self.max_builds = max_builds
         self.prioritized_quartz = prioritized_quartz if prioritized_quartz is not None else set()
+        self.filter_without_all_prioritized = filter_without_all_prioritized
 
         # Calculate required elements
         desired_art_objs = [game_data.arts_map[name]
@@ -178,6 +180,15 @@ class BuildFinder:
 
             # Build is valid if all desired arts are unlocked
             if all(art in unlocked_arts for art in self.desired_arts):
+                # If filter is enabled, also check if all prioritized quartz are present
+                if self.filter_without_all_prioritized and self.prioritized_quartz:
+                    used_quartz = {node.placed_quartz for node in tree.all_nodes}
+                    if not self.prioritized_quartz.issubset(used_quartz):
+                        # Filter out this build - doesn't have all prioritized quartz
+                        if self.progress_callback and self.combinations_checked % 100 == 0:
+                            self.progress_callback()
+                        return
+                
                 # Valid build! Store a complete copy
                 # Store as list of (line_index, slot_index, quartz_name) tuples
                 build_copy = {
@@ -367,7 +378,7 @@ class BuildFinder:
         worker_args = [
             (quartz_name, idx, self.character, self.quartz_pool, 
              self.desired_arts, self.game_data, max_builds_per_worker, 
-             self.prioritized_quartz)
+             self.prioritized_quartz, self.filter_without_all_prioritized)
             for quartz_name, idx in valid_first_choices
         ]
         

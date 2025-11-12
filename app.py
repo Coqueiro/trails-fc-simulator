@@ -193,6 +193,7 @@ if 'initialized' not in st.session_state:
             st.session_state.selected_arts = loaded.get('selected_arts', [])
             st.session_state.max_builds = loaded.get('max_builds', 50)
             st.session_state.use_parallel = loaded.get('use_parallel', False)
+            st.session_state.filter_without_all_prioritized = loaded.get('filter_without_all_prioritized', False)
         else:
             # File doesn't exist, use defaults
             st.session_state.selected_character = "Estelle"
@@ -201,6 +202,7 @@ if 'initialized' not in st.session_state:
             st.session_state.selected_arts = []
             st.session_state.max_builds = 50
             st.session_state.use_parallel = False
+            st.session_state.filter_without_all_prioritized = False
     else:
         # No last session, use defaults
         st.session_state.settings_name = "default"
@@ -211,6 +213,7 @@ if 'initialized' not in st.session_state:
         st.session_state.selected_arts = []
         st.session_state.max_builds = 50
         st.session_state.use_parallel = False
+        st.session_state.filter_without_all_prioritized = False
 
     st.session_state.initialized = True
 
@@ -224,7 +227,8 @@ def auto_save_if_enabled():
             'prioritized_quartz': st.session_state.prioritized_quartz,
             'selected_arts': st.session_state.selected_arts,
             'max_builds': st.session_state.max_builds,
-            'use_parallel': st.session_state.use_parallel
+            'use_parallel': st.session_state.use_parallel,
+            'filter_without_all_prioritized': st.session_state.filter_without_all_prioritized
         }
         save_settings(st.session_state.settings_name, settings)
 
@@ -279,6 +283,7 @@ with st.sidebar:
                     'selected_arts', [])
                 st.session_state.max_builds = loaded.get('max_builds', 50)
                 st.session_state.use_parallel = loaded.get('use_parallel', False)
+                st.session_state.filter_without_all_prioritized = loaded.get('filter_without_all_prioritized', False)
 
                 # Save this as the last session
                 save_last_session(st.session_state.settings_name,
@@ -301,7 +306,8 @@ with st.sidebar:
                 'prioritized_quartz': st.session_state.prioritized_quartz,
                 'selected_arts': st.session_state.selected_arts,
                 'max_builds': st.session_state.max_builds,
-                'use_parallel': st.session_state.use_parallel
+                'use_parallel': st.session_state.use_parallel,
+                'filter_without_all_prioritized': st.session_state.filter_without_all_prioritized
             }
             save_settings(new_name, settings)
             save_last_session(st.session_state.settings_name,
@@ -385,6 +391,17 @@ with tab1:
         if use_parallel != st.session_state.use_parallel:
             st.session_state.use_parallel = use_parallel
             auto_save_if_enabled()
+        
+        # Filter option for prioritized quartz
+        if st.session_state.prioritized_quartz:
+            filter_builds = st.checkbox(
+                "🔍 Filter out builds without ALL prioritized quartzes",
+                value=st.session_state.filter_without_all_prioritized,
+                help="When enabled, only builds that contain ALL your prioritized quartz will be shown. This filters results during the search."
+            )
+            if filter_builds != st.session_state.filter_without_all_prioritized:
+                st.session_state.filter_without_all_prioritized = filter_builds
+                auto_save_if_enabled()
 
         # Quartz selection
         st.markdown(
@@ -519,7 +536,8 @@ with tab1:
                             st.session_state.selected_arts,
                             game_data,
                             max_builds=st.session_state.max_builds,
-                            prioritized_quartz=prioritized_set
+                            prioritized_quartz=prioritized_set,
+                            filter_without_all_prioritized=st.session_state.filter_without_all_prioritized
                         )
 
                         # Create a callback to update progress

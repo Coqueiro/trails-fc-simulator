@@ -40,6 +40,7 @@ Choose the character you want to build for. Each character has a unique orbment 
 
 - **Available Quartz**: Select which quartz you have access to (use "All" to select everything)
 - **Prioritized Quartz** (optional): Quartz that will be tried first during the search
+- **Filter out builds without ALL prioritized quartzes**: When enabled, only shows builds containing all your prioritized quartz
 - **Desired Arts**: Select the arts you want to unlock in your build
 - **Max Builds**: Set how many build results you want (default: 50)
 
@@ -96,10 +97,11 @@ The simulator automatically enforces all Trails FC orbment rules:
 
 1. **Start Broad**: Select all available quartz first, then narrow down with prioritized quartz
 2. **Prioritize Wisely**: Use prioritized quartz to favor specific setups without over-constraining the search
-3. **Check Total Arts**: Builds are sorted by total arts unlocked - sometimes a build unlocks bonus arts you didn't request!
-4. **Use Cache**: The cache speeds up repeated searches with the same parameters
-5. **Enable Parallel Processing**: For large searches (many quartz/arts), enable parallel processing in settings for significant speedup
-6. **Experiment**: Try different desired arts combinations to discover unexpected synergies
+3. **Filter Required Quartz**: If you must use specific quartz (e.g., limited rare quartz), enable "Filter out builds without ALL prioritized quartzes" to only see builds with those quartz
+4. **Check Total Arts**: Builds are sorted by total arts unlocked - sometimes a build unlocks bonus arts you didn't request!
+5. **Use Cache**: The cache speeds up repeated searches with the same parameters
+6. **Enable Parallel Processing**: For large searches (many quartz/arts), enable parallel processing in settings for significant speedup
+7. **Experiment**: Try different desired arts combinations to discover unexpected synergies
 
 ## Troubleshooting
 
