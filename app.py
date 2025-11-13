@@ -490,6 +490,11 @@ with tab1:
 
         with col2:
             st.write("")  # Spacing
+            if st.button("All", key="select_all_arts", use_container_width=True):
+                st.session_state.selected_arts = sorted(
+                    list(game_data.arts_map.keys()))
+                auto_save_if_enabled()
+                st.rerun()
             if st.button("Clear", key="clear_arts", use_container_width=True):
                 st.session_state.selected_arts = []
                 auto_save_if_enabled()
