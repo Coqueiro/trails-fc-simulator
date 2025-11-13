@@ -200,6 +200,48 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "Kloe",
+            "description": "Kloe has a 6-slot line. Slot 0 and 3 are restricted to Water element.",
+            "lines": [
+                {
+                    "name": "Line 1",
+                    "color": "yellow",
+                    "slots": [
+                        {
+                            "index": 0,
+                            "restriction": "Water",
+                            "shared": false
+                        },
+                        {
+                            "index": 1,
+                            "restriction": null,
+                            "shared": false
+                        },
+                        {
+                            "index": 2,
+                            "restriction": null,
+                            "shared": false
+                        },
+                        {
+                            "index": 3,
+                            "restriction": "Water",
+                            "shared": false
+                        },
+                        {
+                            "index": 4,
+                            "restriction": null,
+                            "shared": false
+                        },
+                        {
+                            "index": 5,
+                            "restriction": null,
+                            "shared": false
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
