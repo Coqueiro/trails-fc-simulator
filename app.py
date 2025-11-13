@@ -7,10 +7,16 @@ import json
 import os
 import html
 import multiprocessing
+import logging
 from pathlib import Path
 from datetime import datetime
 from solver import BuildFinder
 from helpers import GameData
+
+# Suppress expected warnings from multiprocessing with Streamlit
+logging.getLogger('streamlit.runtime.scriptrunner_utils.script_run_context').setLevel(logging.ERROR)
+logging.getLogger('streamlit.runtime.state.session_state_proxy').setLevel(logging.ERROR)
+logging.getLogger('streamlit').addFilter(lambda record: 'streamlit run' not in record.getMessage())
 
 # Set multiprocessing start method for compatibility (especially macOS)
 try:
