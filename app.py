@@ -2,6 +2,7 @@
 Streamlit Web UI for Trails FC Arts Simulator
 """
 import streamlit as st
+import streamlit.components.v1 as components
 import json
 import os
 import html
@@ -41,6 +42,94 @@ SETTINGS_DIR.mkdir(exist_ok=True)
 # Cache directory
 CACHE_DIR = Path(".cache")
 CACHE_DIR.mkdir(exist_ok=True)
+
+# Element color mapping (centralized)
+ELEMENT_COLORS = {
+    "Earth": "#8B4513",    # Brown
+    "Water": "#1E90FF",    # Blue
+    "Fire": "#FF4500",     # Red-Orange
+    "Wind": "#32CD32",     # Green
+    "Time": "#9370DB",     # Purple
+    "Space": "#FFD700",    # Gold
+    "Mirage": "#969696"    # Grey
+}
+
+
+def generate_multiselect_css(game_data):
+    """Generate JavaScript to dynamically color multiselect tags based on element."""
+    # Build mapping of item names to colors
+    item_colors = {}
+    
+    # Map quartz to colors based on quartz_element
+    for quartz_name, quartz_data in game_data.quartz_map.items():
+        element = quartz_data.quartz_element
+        if element and element in ELEMENT_COLORS:
+            item_colors[quartz_name] = ELEMENT_COLORS[element]
+    
+    # Map arts to colors based on element
+    for art_name, art_data in game_data.arts_map.items():
+        element = art_data.element
+        if element and element in ELEMENT_COLORS:
+            item_colors[art_name] = ELEMENT_COLORS[element]
+    
+    # Convert to JSON for JavaScript
+    import json
+    colors_json = json.dumps(item_colors)
+    
+    # Generate CSS + JavaScript that colors the tags
+    script = f"""
+    <script>
+    (function() {{
+        const itemColors = {colors_json};
+        
+        console.log('Color script loaded. Items to color:', Object.keys(itemColors).length);
+        
+        function colorMultiselectTags() {{
+            // Find all multiselect tags in parent document
+            const parentDoc = window.parent.document;
+            const tags = parentDoc.querySelectorAll('span[data-baseweb="tag"]');
+            
+            console.log('Found tags:', tags.length);
+            
+            let colored = 0;
+            tags.forEach(tag => {{
+                // Find the child span with title attribute (contains the item name)
+                const titleSpan = tag.querySelector('span[title]');
+                if (titleSpan) {{
+                    const itemName = titleSpan.getAttribute('title');
+                    
+                    // Check if we have a color for this item
+                    if (itemColors[itemName]) {{
+                        tag.style.setProperty('background-color', itemColors[itemName], 'important');
+                        tag.style.setProperty('color', 'white', 'important');
+                        // Also ensure the text span is white
+                        titleSpan.style.setProperty('color', 'white', 'important');
+                        colored++;
+                    }}
+                }}
+            }});
+            
+            if (colored > 0) {{
+                console.log('Colored', colored, 'tags');
+            }}
+        }}
+        
+        // Run immediately
+        colorMultiselectTags();
+        
+        // Run when DOM changes (to catch newly added tags)
+        const observer = new MutationObserver(function(mutations) {{
+            colorMultiselectTags();
+        }});
+        observer.observe(window.parent.document.body, {{ childList: true, subtree: true }});
+        
+        // Also run periodically as a fallback (every 500ms)
+        setInterval(colorMultiselectTags, 500);
+    }})();
+    </script>
+    """
+    
+    return script
 
 
 def generate_cache_key(character_name, quartz_set, desired_arts, max_builds, prioritized_quartz):
@@ -240,6 +329,10 @@ def auto_save_if_enabled():
 # Title
 st.title("🎮 Trails in the Sky FC - Arts Simulator")
 st.markdown("Find optimal quartz builds for your desired arts")
+
+# Inject JavaScript for colored multiselect tags using components.html
+# This allows the script to access parent document and modify Streamlit elements
+components.html(generate_multiselect_css(game_data), height=0, width=0)
 
 # Sidebar for settings management
 with st.sidebar:
@@ -627,16 +720,8 @@ with tab1:
                             </style>
                             """, unsafe_allow_html=True)
 
-                            # Define element colors (same as arts)
-                            element_colors = {
-                                "Earth": "#8B4513",    # Brown
-                                "Water": "#1E90FF",    # Blue
-                                "Fire": "#FF4500",     # Red-Orange
-                                "Wind": "#32CD32",     # Green
-                                "Time": "#9370DB",     # Purple
-                                "Space": "#FFD700",    # Gold
-                                "Mirage": "#969696"    # Grey
-                            }
+                            # Use centralized element colors
+                            element_colors = ELEMENT_COLORS
 
                             # Group by line
                             by_line = {}
@@ -695,16 +780,8 @@ with tab1:
                             st.markdown(
                                 f"**✨ Unlocked Arts ({build['total_arts']})**")
 
-                            # Define element colors
-                            element_colors = {
-                                "Earth": "#8B4513",    # Brown
-                                "Water": "#1E90FF",    # Blue
-                                "Fire": "#FF4500",     # Red-Orange
-                                "Wind": "#32CD32",     # Green
-                                "Time": "#9370DB",     # Purple
-                                "Space": "#FFD700",    # Gold
-                                "Mirage": "#969696"    # Grey
-                            }
+                            # Use centralized element colors
+                            element_colors = ELEMENT_COLORS
 
                             # Group arts by element and sort
                             arts_by_element = {}
