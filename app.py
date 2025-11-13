@@ -502,29 +502,46 @@ with tab1:
                 st.session_state.filter_without_all_prioritized = filter_builds
                 auto_save_if_enabled()
 
-        # Selection form - no reruns until buttons are pressed
-        with st.form(key='selection_form', clear_on_submit=False):
-            # Quartz selection
-            st.markdown(
-                "**Available Quartz** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/quartz-list)")
+        # Quartz selection
+        st.markdown(
+            "**Available Quartz** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/quartz-list)")
 
-            col1, col2 = st.columns([4, 1])
-            with col1:
-                selected_quartz = st.multiselect(
-                    "Select quartz",
-                    options=sorted(game_data.quartz_map.keys()),
-                    default=st.session_state.selected_quartz,
-                    label_visibility="collapsed"
-                )
+        col1, col2 = st.columns([4, 1])
+        with col1:
+            selected_quartz = st.multiselect(
+                "Select quartz",
+                options=sorted(game_data.quartz_map.keys()),
+                default=st.session_state.selected_quartz,
+                label_visibility="collapsed"
+            )
+            # Update session state and rerun if changed
+            if selected_quartz != st.session_state.selected_quartz:
+                st.session_state.selected_quartz = selected_quartz
+                # Remove any prioritized quartz that are no longer selected
+                st.session_state.prioritized_quartz = [
+                    q for q in st.session_state.prioritized_quartz
+                    if q in selected_quartz
+                ]
+                auto_save_if_enabled()
+                st.rerun()
 
-            with col2:
-                st.write("")  # Spacing
-                select_all_quartz = st.form_submit_button("All", key="form_all_quartz", use_container_width=True)
-                clear_quartz = st.form_submit_button("Clear", key="form_clear_quartz", use_container_width=True)
+        with col2:
+            st.write("")  # Spacing
+            if st.button("All", key="select_all_quartz", use_container_width=True):
+                st.session_state.selected_quartz = sorted(
+                    list(game_data.quartz_map.keys()))
+                auto_save_if_enabled()
+                st.rerun()
+            if st.button("Clear", key="clear_quartz", use_container_width=True):
+                st.session_state.selected_quartz = []
+                st.session_state.prioritized_quartz = []
+                auto_save_if_enabled()
+                st.rerun()
 
-            st.caption(f"Selected: {len(st.session_state.selected_quartz)} quartz")
+        st.caption(f"Selected: {len(st.session_state.selected_quartz)} quartz")
 
-            # Prioritized Quartz selection
+        # Prioritized Quartz selection
+        if st.session_state.selected_quartz:
             st.markdown("**Prioritized Quartz** (optional)")
             st.caption("These quartz will be tried first during build search")
 
@@ -532,85 +549,60 @@ with tab1:
             with col1:
                 prioritized_quartz = st.multiselect(
                     "Select prioritized quartz",
-                    options=sorted([q for q in selected_quartz]),
-                    default=[q for q in st.session_state.prioritized_quartz if q in selected_quartz],
+                    options=sorted(st.session_state.selected_quartz),
+                    default=st.session_state.prioritized_quartz,
                     label_visibility="collapsed"
                 )
+                # Update session state and rerun if changed
+                if prioritized_quartz != st.session_state.prioritized_quartz:
+                    st.session_state.prioritized_quartz = prioritized_quartz
+                    auto_save_if_enabled()
+                    st.rerun()
 
             with col2:
                 st.write("")  # Spacing
-                clear_prioritized = st.form_submit_button("Clear", key="form_clear_prioritized", use_container_width=True)
+                if st.button("Clear", key="clear_prioritized", use_container_width=True):
+                    st.session_state.prioritized_quartz = []
+                    auto_save_if_enabled()
+                    st.rerun()
 
-            st.caption(f"Prioritized: {len(st.session_state.prioritized_quartz)} quartz")
+            st.caption(
+                f"Prioritized: {len(st.session_state.prioritized_quartz)} quartz")
 
-            # Arts selection
-            st.markdown(
-                "**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
+        # Arts selection
+        st.markdown(
+            "**Desired Arts** · [Reference Guide](https://gamefaqs.gamespot.com/ps5/503564-trails-in-the-sky-1st-chapter/faqs/82117/arts-list)")
 
-            col1, col2 = st.columns([4, 1])
-            with col1:
-                selected_arts = st.multiselect(
-                    "Select arts",
-                    options=sorted(game_data.arts_map.keys()),
-                    default=st.session_state.selected_arts,
-                    label_visibility="collapsed"
-                )
+        col1, col2 = st.columns([4, 1])
+        with col1:
+            selected_arts = st.multiselect(
+                "Select arts",
+                options=sorted(game_data.arts_map.keys()),
+                default=st.session_state.selected_arts,
+                label_visibility="collapsed"
+            )
+            # Update session state and rerun if changed
+            if selected_arts != st.session_state.selected_arts:
+                st.session_state.selected_arts = selected_arts
+                auto_save_if_enabled()
+                st.rerun()
 
-            with col2:
-                st.write("")  # Spacing
-                select_all_arts = st.form_submit_button("All", key="form_all_arts", use_container_width=True)
-                clear_arts = st.form_submit_button("Clear", key="form_clear_arts", use_container_width=True)
+        with col2:
+            st.write("")  # Spacing
+            if st.button("All", key="select_all_arts", use_container_width=True):
+                st.session_state.selected_arts = sorted(
+                    list(game_data.arts_map.keys()))
+                auto_save_if_enabled()
+                st.rerun()
+            if st.button("Clear", key="clear_arts", use_container_width=True):
+                st.session_state.selected_arts = []
+                auto_save_if_enabled()
+                st.rerun()
 
-            st.caption(f"Selected: {len(st.session_state.selected_arts)} arts")
-
-        # Handle form submissions
-        if select_all_quartz:
-            st.session_state.selected_quartz = sorted(list(game_data.quartz_map.keys()))
-            auto_save_if_enabled()
-            st.rerun()
-        
-        if clear_quartz:
-            st.session_state.selected_quartz = []
-            st.session_state.prioritized_quartz = []
-            auto_save_if_enabled()
-            st.rerun()
-        
-        if clear_prioritized:
-            st.session_state.prioritized_quartz = []
-            auto_save_if_enabled()
-            st.rerun()
-        
-        if select_all_arts:
-            st.session_state.selected_arts = sorted(list(game_data.arts_map.keys()))
-            auto_save_if_enabled()
-            st.rerun()
-        
-        if clear_arts:
-            st.session_state.selected_arts = []
-            auto_save_if_enabled()
-            st.rerun()
-        
-        # Update session state with form values when any button is pressed
-        if any([select_all_quartz, clear_quartz, clear_prioritized, select_all_arts, clear_arts]):
-            pass  # Already handled above
-        
-        # Store form values in a temporary state for "Find Builds" to use
-        st.session_state.form_selected_quartz = selected_quartz
-        st.session_state.form_prioritized_quartz = prioritized_quartz
-        st.session_state.form_selected_arts = selected_arts
+        st.caption(f"Selected: {len(st.session_state.selected_arts)} arts")
 
     # Run solver button
     if st.button("🔍 Find Builds", type="primary", use_container_width=True):
-        # Apply form selections first
-        if 'form_selected_quartz' in st.session_state:
-            st.session_state.selected_quartz = st.session_state.form_selected_quartz
-            st.session_state.prioritized_quartz = [
-                q for q in st.session_state.form_prioritized_quartz 
-                if q in st.session_state.form_selected_quartz
-            ]
-            st.session_state.selected_arts = st.session_state.form_selected_arts
-            auto_save_if_enabled()
-        
         if not st.session_state.selected_arts:
             st.error("Please select at least one desired art!")
         elif not st.session_state.selected_quartz:
